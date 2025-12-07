@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 
 export default function Home() {
     return (
@@ -19,19 +20,7 @@ export default function Home() {
             <Experience />
 
             {/* Projects Section */}
-            <section
-                id="projects"
-                className="flex min-h-screen items-center justify-center bg-background"
-            >
-                <div className="container px-4 md:px-6">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                        Projects
-                    </h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Your projects section content goes here...
-                    </p>
-                </div>
-            </section>
+            <Projects />
 
             {/* Contact Section */}
             <section
