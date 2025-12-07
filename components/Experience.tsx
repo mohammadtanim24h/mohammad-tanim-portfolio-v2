@@ -81,7 +81,7 @@ export default function Experience() {
                 </div>
 
                 {/* Timeline Container */}
-                <div className="max-w-4xl mx-auto">
+                <div>
                     <div className="relative">
                         {/* Vertical Line - Hidden on mobile */}
                         <div className="hidden md:block absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-border"></div>

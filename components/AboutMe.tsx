@@ -11,7 +11,7 @@ export default function AboutMe() {
                 </div>
 
                 {/* Content Grid */}
-                <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
+                <div className="space-y-12 md:space-y-16">
                     {/* My Journey */}
                     <div className="prose prose-lg dark:prose-invert max-w-none">
                         <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">

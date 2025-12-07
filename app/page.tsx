@@ -4,7 +4,7 @@ import Experience from "@/components/Experience";
 
 export default function Home() {
     return (
-        <main>
+        <main className="max-w-7xl mx-auto">
             {/* Hero Section */}
             <Hero />
 
