@@ -24,7 +24,7 @@ export function Projects() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
                         Featured <span className="gradient-text">Projects</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
 
                 <motion.div
@@ -43,7 +43,7 @@ export function Projects() {
                             <Card className="glass-surface overflow-hidden hover-lift h-full flex flex-col">
                                 {/* Project Image */}
                                 <div className="relative overflow-hidden">
-                                    <div className="aspect-video relative bg-gradient-to-br from-accent/5 to-accent-alt/5">
+                                    <div className="aspect-video relative bg-linear-to-br from-accent/5 to-accent-alt/5">
                                         <Image
                                             src={project.image}
                                             alt={project.title}

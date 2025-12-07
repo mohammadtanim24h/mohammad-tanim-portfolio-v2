@@ -27,7 +27,7 @@ export function Hero() {
         >
             {/* Background Pattern */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-accent-alt/5" />
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-background to-accent-alt/5" />
                 <motion.div
                     style={{ y, opacity }}
                     className="absolute -top-40 -right-40 h-80 w-80 max-w-[300px] rounded-full bg-accent/10 blur-3xl"
@@ -54,7 +54,7 @@ export function Hero() {
                             <span className="block text-4xl md:text-6xl font-extralight tracking-tight">
                                 Hi, I'm{" "}
                             </span>
-                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light gradient-text mt-2 break-words">
+                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light gradient-text mt-2 wrap-break-word">
                                 Mohammad Tanim
                             </span>
                         </motion.h1>
@@ -137,7 +137,7 @@ export function Hero() {
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
-                                className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/20 to-accent-alt/20 blur-xl"
+                                className="absolute inset-0 rounded-full bg-linear-to-br from-accent/20 to-accent-alt/20 blur-xl"
                             />
 
                             {/* Image Container */}
@@ -149,7 +149,7 @@ export function Hero() {
                                 }}
                                 className="relative rounded-3xl overflow-hidden shadow-xlarge glass-surface p-1"
                             >
-                                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-accent/5 to-accent-alt/5">
+                                <div className="relative rounded-3xl overflow-hidden bg-linear-to-br from-accent/5 to-accent-alt/5">
                                     <Image
                                         src="/hero-photo.png"
                                         alt="Mohammad Tanim"
@@ -171,7 +171,7 @@ export function Hero() {
                                 }}
                                 className="absolute -top-4 -right-4 w-20 h-20"
                             >
-                                <div className="w-full h-full rounded-full bg-gradient-to-br from-accent/20 to-transparent blur-sm" />
+                                <div className="w-full h-full rounded-full bg-linear-to-br from-accent/20 to-transparent blur-sm" />
                             </motion.div>
 
                             <motion.div
@@ -183,7 +183,7 @@ export function Hero() {
                                 }}
                                 className="absolute -bottom-4 -left-4 w-16 h-16"
                             >
-                                <div className="w-full h-full rounded-full bg-gradient-to-tr from-accent-alt/20 to-transparent blur-sm" />
+                                <div className="w-full h-full rounded-full bg-linear-to-tr from-accent-alt/20 to-transparent blur-sm" />
                             </motion.div>
                         </div>
                     </motion.div>

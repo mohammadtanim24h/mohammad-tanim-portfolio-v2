@@ -38,7 +38,7 @@ export function Skills() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
                         My <span className="gradient-text">Skills</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
 
                 <motion.div
@@ -100,7 +100,7 @@ export function Skills() {
                                                 </div>
 
                                                 {/* Hover Effect */}
-                                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-alt/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-accent-alt/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </CardContent>
                                         </Card>
                                     </motion.div>

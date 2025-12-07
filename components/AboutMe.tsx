@@ -40,7 +40,7 @@ export function AboutMe() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
                         About <span className="gradient-text">Me</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -116,7 +116,7 @@ export function AboutMe() {
                                 className="glass-surface rounded-2xl p-6 hover-lift cursor-default"
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 rounded-xl bg-gradient-to-br from-accent/10 to-accent-alt/10">
+                                    <div className="p-3 rounded-xl bg-linear-to-br from-accent/10 to-accent-alt/10">
                                         <highlight.icon className="h-6 w-6 text-accent" />
                                     </div>
                                     <div className="flex-1">

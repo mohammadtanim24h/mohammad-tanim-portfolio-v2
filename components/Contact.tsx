@@ -44,7 +44,7 @@ export function Contact() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
                         Get In <span className="gradient-text">Touch</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
 
                 <div className="max-w-4xl mx-auto">
@@ -64,7 +64,7 @@ export function Contact() {
                             >
                                 <Card className="glass-surface hover-lift h-full">
                                     <CardContent className="p-6 text-center">
-                                        <div className="mx-auto w-12 h-12 rounded-full bg-gradient-to-br from-accent/10 to-accent-alt/10 flex items-center justify-center mb-4">
+                                        <div className="mx-auto w-12 h-12 rounded-full bg-linear-to-br from-accent/10 to-accent-alt/10 flex items-center justify-center mb-4">
                                             <method.icon className="h-6 w-6 text-accent" />
                                         </div>
                                         <h3 className="text-lg font-medium mb-1">
