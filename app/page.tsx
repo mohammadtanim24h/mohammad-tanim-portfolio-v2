@@ -3,6 +3,8 @@ import AboutMe from "@/components/AboutMe";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (
@@ -23,19 +25,10 @@ export default function Home() {
             <Projects />
 
             {/* Contact Section */}
-            <section
-                id="contact"
-                className="flex min-h-screen items-center justify-center bg-muted/30"
-            >
-                <div className="container px-4 md:px-6">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                        Contact
-                    </h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Your contact section content goes here...
-                    </p>
-                </div>
-            </section>
+            <Contact />
+
+            {/* Footer Section */}
+            <Footer />
         </main>
     );
 }
