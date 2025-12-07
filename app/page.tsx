@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
+import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 
 export default function Home() {
@@ -12,19 +13,7 @@ export default function Home() {
             <AboutMe />
 
             {/* Skills Section */}
-            <section
-                id="skills"
-                className="flex min-h-screen items-center justify-center bg-background"
-            >
-                <div className="container px-4 md:px-6">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                        Skills
-                    </h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        Your skills section content goes here...
-                    </p>
-                </div>
-            </section>
+            <Skills />
 
             {/* Experience Section */}
             <Experience />
