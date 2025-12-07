@@ -65,7 +65,7 @@ const experiences: ExperienceItem[] = [
     },
 ];
 
-export default function Experience() {
+export function Experience() {
     return (
         <section
             id="experience"
