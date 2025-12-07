@@ -1,106 +1,172 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { projects } from "@/lib/data";
-import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
+import { projectsData } from "@/lib/data";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-export default function Projects() {
+export function Projects() {
     return (
-        <section
-            id="projects"
-            className="py-16 md:py-24 lg:py-32 bg-background"
-        >
-            <div className="container px-4 md:px-6">
-                {/* Section Header */}
-                <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        Featured Projects
+        <section id="projects" className="py-24 md:py-16">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
+                        Featured <span className="gradient-text">Projects</span>
                     </h2>
-                    <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
-                    <p className="text-muted-foreground text-base md:text-lg">
-                        A showcase of my recent work and personal projects
-                    </p>
-                </div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                </motion.div>
 
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {projects.map((project) => (
-                        <Card
-                            key={project.id}
-                            className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col"
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={staggerChildren}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {projectsData.map((project, index) => (
+                        <motion.div
+                            key={project.title}
+                            variants={fadeInUp}
+                            className="group"
                         >
-                            {/* Project Image */}
-                            <CardHeader className="p-0">
-                                <div className="relative w-full h-48 md:h-56 overflow-hidden bg-muted">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                </div>
-                            </CardHeader>
+                            <Card className="glass-surface overflow-hidden hover-lift h-full flex flex-col">
+                                {/* Project Image */}
+                                <div className="relative overflow-hidden">
+                                    <div className="aspect-video relative bg-gradient-to-br from-accent/5 to-accent-alt/5">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </div>
 
-                            {/* Project Content */}
-                            <CardContent className="p-6 flex-1 flex flex-col">
-                                <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                                    {project.title}
-                                </h3>
-
-                                <p className="text-muted-foreground text-sm md:text-base mb-4 line-clamp-3 flex-1">
-                                    {project.description}
-                                </p>
-
-                                {/* Tech Stack */}
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.techStack
-                                        .slice(0, 3)
-                                        .map((tech, index) => (
-                                            <Badge
-                                                key={index}
-                                                variant="secondary"
-                                                className="text-xs"
-                                            >
-                                                {tech}
-                                            </Badge>
-                                        ))}
-                                    {project.techStack.length > 3 && (
-                                        <Badge
-                                            variant="outline"
-                                            className="text-xs"
-                                        >
-                                            +{project.techStack.length - 3} more
-                                        </Badge>
-                                    )}
-                                </div>
-                            </CardContent>
-
-                            {/* Project Footer */}
-                            <CardFooter className="p-6 pt-0">
-                                <Link
-                                    href={`/projects/${project.slug}`}
-                                    className="w-full"
-                                >
-                                    <Button
-                                        className="w-full group/btn"
-                                        variant="default"
+                                    {/* Overlay Links */}
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        whileHover={{ opacity: 1 }}
+                                        className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-4"
                                     >
-                                        View Details
-                                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        {project.demoLink && (
+                                            <Button
+                                                size="sm"
+                                                variant="secondary"
+                                                asChild
+                                                className="rounded-full"
+                                            >
+                                                <Link
+                                                    href={project.demoLink}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <ExternalLink className="h-4 w-4" />
+                                                </Link>
+                                            </Button>
+                                        )}
+                                        <Button
+                                            size="sm"
+                                            variant="secondary"
+                                            asChild
+                                            className="rounded-full"
+                                        >
+                                            <Link
+                                                href={project.githubLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Github className="h-4 w-4" />
+                                            </Link>
+                                        </Button>
+                                    </motion.div>
+                                </div>
+
+                                <CardContent className="p-6 flex-1 flex flex-col">
+                                    <div className="flex-1">
+                                        <Link
+                                            href={`/projects/${project.slug}`}
+                                        >
+                                            <h3 className="text-xl font-medium mb-2 group-hover:text-accent transition-colors">
+                                                {project.title}
+                                            </h3>
+                                        </Link>
+                                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                                            {project.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Tech Stack */}
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.techStack
+                                            .slice(0, 3)
+                                            .map((tech) => (
+                                                <Badge
+                                                    key={tech}
+                                                    variant="secondary"
+                                                    className="text-xs font-normal"
+                                                >
+                                                    {tech}
+                                                </Badge>
+                                            ))}
+                                        {project.techStack.length > 3 && (
+                                            <Badge
+                                                variant="outline"
+                                                className="text-xs font-normal"
+                                            >
+                                                +{project.techStack.length - 3}
+                                            </Badge>
+                                        )}
+                                    </div>
+
+                                    {/* View Details Button */}
+                                    <Button
+                                        variant="ghost"
+                                        className="w-full group/btn justify-between"
+                                        asChild
+                                    >
+                                        <Link
+                                            href={`/projects/${project.slug}`}
+                                        >
+                                            View Details
+                                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                                        </Link>
                                     </Button>
-                                </Link>
-                            </CardFooter>
-                        </Card>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
+
+                {/* View All Projects CTA */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="text-center mt-16"
+                >
+                    <Button
+                        variant="outline"
+                        size="lg"
+                        className="rounded-full group"
+                        asChild
+                    >
+                        <Link href="/projects">
+                            View All Projects
+                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                    </Button>
+                </motion.div>
             </div>
         </section>
     );

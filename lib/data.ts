@@ -1,3 +1,40 @@
+// Skills type definition
+export interface Skill {
+    name: string;
+    icon: React.ComponentType<{ className?: string }>;
+    level: string;
+}
+
+// Skills data
+import { Code2, Layout, FileText, Palette, Braces, Server, TerminalSquare, Database, PlugZap, GitBranch, Box, Cloud, PenTool, Rocket } from "lucide-react";
+
+export const skillsData = {
+    frontend: [
+        { name: "React", icon: Code2, level: "Advanced" },
+        { name: "Next.js", icon: Layout, level: "Advanced" },
+        { name: "TypeScript", icon: FileText, level: "Advanced" },
+        { name: "Tailwind CSS", icon: Palette, level: "Advanced" },
+        { name: "JavaScript", icon: Braces, level: "Expert" },
+        { name: "HTML/CSS", icon: Code2, level: "Expert" },
+    ],
+    backend: [
+        { name: "Node.js", icon: Server, level: "Advanced" },
+        { name: "Express.js", icon: TerminalSquare, level: "Advanced" },
+        { name: "PostgreSQL", icon: Database, level: "Intermediate" },
+        { name: "MongoDB", icon: Database, level: "Intermediate" },
+        { name: "Python", icon: TerminalSquare, level: "Intermediate" },
+        { name: "REST APIs", icon: PlugZap, level: "Advanced" },
+    ],
+    tools: [
+        { name: "Git", icon: GitBranch, level: "Advanced" },
+        { name: "Docker", icon: Box, level: "Intermediate" },
+        { name: "AWS", icon: Cloud, level: "Intermediate" },
+        { name: "VS Code", icon: Code2, level: "Expert" },
+        { name: "Figma", icon: PenTool, level: "Intermediate" },
+        { name: "Vercel", icon: Rocket, level: "Advanced" },
+    ],
+};
+
 // Project type definition
 export interface Project {
     id: number;
@@ -6,14 +43,14 @@ export interface Project {
     image: string;
     description: string;
     techStack: string[];
-    liveLink?: string;
-    repoLink: string;
+    demoLink?: string;
+    githubLink: string;
     challenges: string;
     improvements: string;
 }
 
 // Sample projects data
-export const projects: Project[] = [
+export const projectsData: Project[] = [
     {
         id: 1,
         slug: "ecommerce-platform",
@@ -29,8 +66,8 @@ export const projects: Project[] = [
             "Stripe",
             "Tailwind CSS",
         ],
-        liveLink: "https://ecommerce-demo.example.com",
-        repoLink: "https://github.com/yourusername/ecommerce-platform",
+        demoLink: "https://ecommerce-demo.example.com",
+        githubLink: "https://github.com/yourusername/ecommerce-platform",
         challenges:
             "Implementing real-time inventory management and handling concurrent transactions was challenging. I solved this by implementing optimistic locking with Prisma and using database transactions to ensure data consistency.",
         improvements:
@@ -52,8 +89,8 @@ export const projects: Project[] = [
             "Redux",
             "Material-UI",
         ],
-        liveLink: "https://taskmanager-demo.example.com",
-        repoLink: "https://github.com/yourusername/task-manager",
+        demoLink: "https://taskmanager-demo.example.com",
+        githubLink: "https://github.com/yourusername/task-manager",
         challenges:
             "The biggest challenge was implementing real-time synchronization across multiple clients without conflicts. I implemented operational transformation principles and conflict resolution strategies to handle simultaneous edits.",
         improvements:
@@ -74,8 +111,8 @@ export const projects: Project[] = [
             "Vuex",
             "TailwindCSS",
         ],
-        liveLink: "https://weather-dashboard.example.com",
-        repoLink: "https://github.com/yourusername/weather-dashboard",
+        demoLink: "https://weather-dashboard.example.com",
+        githubLink: "https://github.com/yourusername/weather-dashboard",
         challenges:
             "Handling API rate limits and providing a smooth user experience was challenging. I implemented intelligent caching with localStorage and service workers to minimize API calls while keeping data fresh.",
         improvements:
@@ -96,7 +133,7 @@ export const projects: Project[] = [
             "AWS S3",
             "TipTap Editor",
         ],
-        repoLink: "https://github.com/yourusername/blog-cms",
+        githubLink: "https://github.com/yourusername/blog-cms",
         challenges:
             "Building a performant rich text editor with collaboration features was complex. I integrated TipTap editor and implemented custom extensions for embedding media, code blocks, and custom components.",
         improvements:

@@ -1,72 +1,226 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+"use client";
 
-export default function Hero() {
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useTheme } from "next-themes";
+import { ArrowDown, Download, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import {
+    fadeIn,
+    fadeInUp,
+    fadeInLeft,
+    fadeInRight,
+    floatAnimation,
+} from "@/lib/motion";
+
+export function Hero() {
+    const { scrollY } = useScroll();
+    const { theme } = useTheme();
+
+    const y = useTransform(scrollY, [0, 500], [0, 150]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
     return (
         <section
             id="home"
-            className="min-h-screen flex items-center justify-center bg-background"
+            className="min-h-screen flex items-center justify-center"
         >
-            <div className="container px-4 md:px-6 py-2 md:py-6">
-                <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-                    {/* Text Content - Left Side */}
-                    <div className="flex flex-col justify-center space-y-6 text-center lg:text-left order-2 lg:order-1">
-                        {/* Greeting */}
-                        <div className="space-y-2">
-                            <p className="text-lg md:text-xl text-muted-foreground font-medium">
-                                Hi, I'm Mohammad Tanim
-                            </p>
-                            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-linear-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                                Full Stack Web Developer
-                            </h1>
-                        </div>
+            {/* Background Pattern */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-accent-alt/5" />
+                <motion.div
+                    style={{ y, opacity }}
+                    className="absolute -top-40 -right-40 h-80 w-80 max-w-[300px] rounded-full bg-accent/10 blur-3xl"
+                />
+                <motion.div
+                    style={{
+                        y: useTransform(scrollY, [0, 500], [0, -100]),
+                        opacity,
+                    }}
+                    className="absolute -bottom-40 -left-40 h-80 w-80 max-w-[300px] rounded-full bg-accent-alt/10 blur-3xl"
+                />
+            </div>
 
-                        {/* Brief Intro */}
-                        <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-[600px] mx-auto lg:mx-0">
-                            Passionate about creating elegant, scalable
-                            solutions that solve real-world problems.
-                            Specializing in modern web technologies and
-                            delivering exceptional user experiences.
-                        </p>
+            <div className="container mx-auto px-4 py-20 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
+                    {/* Text Content */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerChildren}
+                        className="text-center lg:text-left"
+                    >
+                        <motion.h1 variants={fadeInUp} className="mb-6">
+                            <span className="block text-4xl md:text-6xl font-extralight tracking-tight">
+                                Hi, I'm{" "}
+                            </span>
+                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light gradient-text mt-2 break-words">
+                                Mohammad Tanim
+                            </span>
+                        </motion.h1>
 
-                        {/* Resume Button */}
-                        <div className="flex justify-center lg:justify-start">
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 font-light"
+                        >
+                            Full-stack developer crafting beautiful, scalable
+                            web experiences with modern technologies
+                        </motion.p>
+
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                        >
                             <Button
-                                asChild
                                 size="lg"
-                                className="text-base font-semibold px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                                className="rounded-full shadow-medium hover-lift"
+                                onClick={() =>
+                                    document
+                                        .getElementById("projects")
+                                        ?.scrollIntoView({ behavior: "smooth" })
+                                }
                             >
-                                <Link href="/resume.pdf">Download Resume</Link>
+                                View Projects
+                                <ArrowDown className="ml-2 h-4 w-4" />
                             </Button>
-                        </div>
-                    </div>
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="rounded-full hover-lift"
+                            >
+                                Download CV
+                                <Download className="ml-2 h-4 w-4" />
+                            </Button>
+                        </motion.div>
 
-                    {/* Image - Right Side */}
-                    <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-                        <div className="relative w-full max-w-[400px] lg:max-w-[500px] aspect-square">
-                            {/* Decorative Background */}
-                            <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-primary/5 rounded-full blur-3xl"></div>
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex gap-6 mt-12 justify-center lg:justify-start"
+                        >
+                            {[
+                                { label: "2+", value: "Years Experience" },
+                                { label: "20+", value: "Projects Completed" },
+                                { label: "5+", value: "Technologies" },
+                            ].map((stat, index) => (
+                                <motion.div
+                                    key={stat.label}
+                                    variants={fadeInUp}
+                                    className="text-center"
+                                >
+                                    <div className="text-3xl md:text-4xl font-light gradient-text">
+                                        {stat.label}
+                                    </div>
+                                    <div className="text-sm text-muted-foreground font-light">
+                                        {stat.value}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Image */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={floatAnimation}
+                        className="relative mx-auto lg:ml-auto"
+                    >
+                        <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                            {/* Glow Effect */}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                    opacity: [0.5, 0.8, 0.5],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                className="absolute inset-0 rounded-full bg-gradient-to-br from-accent/20 to-accent-alt/20 blur-xl"
+                            />
 
                             {/* Image Container */}
-                            <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-primary/10 shadow-2xl">
-                                <Image
-                                    src="/hero-photo.png"
-                                    alt="Mohammad Tanim - Full Stack Web Developer"
-                                    fill
-                                    priority={true}
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                                />
-                            </div>
+                            <motion.div
+                                whileHover={{
+                                    scale: 1.05,
+                                    rotate: [0, 1, -1, 0],
+                                    transition: { duration: 0.5 },
+                                }}
+                                className="relative rounded-3xl overflow-hidden shadow-xlarge glass-surface p-1"
+                            >
+                                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-accent/5 to-accent-alt/5">
+                                    <Image
+                                        src="/hero-photo.png"
+                                        alt="Mohammad Tanim"
+                                        width={400}
+                                        height={400}
+                                        className="w-full h-full object-cover"
+                                        priority
+                                    />
+                                </div>
+                            </motion.div>
 
-                            {/* Decorative Accent */}
-                            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl"></div>
-                            <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+                            {/* Decorative Elements */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{
+                                    duration: 20,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                }}
+                                className="absolute -top-4 -right-4 w-20 h-20"
+                            >
+                                <div className="w-full h-full rounded-full bg-gradient-to-br from-accent/20 to-transparent blur-sm" />
+                            </motion.div>
+
+                            <motion.div
+                                animate={{ rotate: -360 }}
+                                transition={{
+                                    duration: 15,
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                }}
+                                className="absolute -bottom-4 -left-4 w-16 h-16"
+                            >
+                                <div className="w-full h-full rounded-full bg-gradient-to-tr from-accent-alt/20 to-transparent blur-sm" />
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                        opacity: 1,
+                        y: 0,
+                        transition: { delay: 1 },
+                    }}
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                >
+                    <motion.div
+                        animate={{ y: [0, 10, 0] }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <ArrowDown className="h-5 w-5 text-muted-foreground" />
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
 }
+
+const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};

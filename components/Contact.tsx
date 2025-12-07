@@ -1,96 +1,144 @@
-import { Mail, Phone, MessageCircle } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
+import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 
-export default function Contact() {
-    const contactMethods = [
-        {
-            icon: Mail,
-            label: "Email",
-            value: "your.email@example.com",
-            href: "mailto:your.email@example.com",
-            description: "Send me an email",
-            color: "text-blue-500",
-            bgColor: "bg-blue-500/10 hover:bg-blue-500/20",
-        },
-        {
-            icon: Phone,
-            label: "Phone",
-            value: "+1 (234) 567-8900",
-            href: "tel:+12345678900",
-            description: "Give me a call",
-            color: "text-green-500",
-            bgColor: "bg-green-500/10 hover:bg-green-500/20",
-        },
-        {
-            icon: MessageCircle,
-            label: "WhatsApp",
-            value: "+1 (234) 567-8900",
-            href: "https://wa.me/12345678900",
-            description: "Chat on WhatsApp",
-            color: "text-emerald-500",
-            bgColor: "bg-emerald-500/10 hover:bg-emerald-500/20",
-        },
-    ];
+const contactMethods = [
+    {
+        icon: Mail,
+        label: "Email",
+        value: "mohammadtanim@example.com",
+        href: "mailto:mohammadtanim@example.com",
+        description: "Send me a message anytime",
+    },
+    {
+        icon: Phone,
+        label: "Phone",
+        value: "+880 1234-567890",
+        href: "tel:+8801234567890",
+        description: "Available for calls",
+    },
+    {
+        icon: MessageCircle,
+        label: "WhatsApp",
+        value: "+880 1234-567890",
+        href: "https://wa.me/8801234567890",
+        description: "Quick chat support",
+    },
+];
 
+export function Contact() {
     return (
-        <section id="contact" className="py-20 px-4">
-            <div className="container mx-auto max-w-6xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Get In Touch
+        <section id="contact" className="py-24 md:py-16">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
+                        Get In <span className="gradient-text">Touch</span>
                     </h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        Have a project in mind or want to collaborate? Feel free
-                        to reach out through any of these channels.
-                    </p>
-                </div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {contactMethods.map((method) => {
-                        const Icon = method.icon;
-                        return (
-                            <a
+                <div className="max-w-4xl mx-auto">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerChildren}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+                    >
+                        {contactMethods.map((method) => (
+                            <motion.div
                                 key={method.label}
-                                href={method.href}
-                                target={
-                                    method.label === "WhatsApp"
-                                        ? "_blank"
-                                        : undefined
-                                }
-                                rel={
-                                    method.label === "WhatsApp"
-                                        ? "noopener noreferrer"
-                                        : undefined
-                                }
-                                className="group"
+                                variants={fadeInUp}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.3 }}
                             >
-                                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer border-2 hover:border-primary/50">
-                                    <CardContent className="p-8 flex flex-col items-center text-center space-y-4">
-                                        <div
-                                            className={`${method.bgColor} p-4 rounded-full transition-all duration-300 group-hover:scale-110`}
+                                <Card className="glass-surface hover-lift h-full">
+                                    <CardContent className="p-6 text-center">
+                                        <div className="mx-auto w-12 h-12 rounded-full bg-gradient-to-br from-accent/10 to-accent-alt/10 flex items-center justify-center mb-4">
+                                            <method.icon className="h-6 w-6 text-accent" />
+                                        </div>
+                                        <h3 className="text-lg font-medium mb-1">
+                                            {method.label}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground mb-3">
+                                            {method.description}
+                                        </p>
+                                        <Button
+                                            variant="link"
+                                            asChild
+                                            className="p-0 h-auto font-normal"
                                         >
-                                            <Icon
-                                                className={`w-8 h-8 ${method.color}`}
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-xl mb-2">
-                                                {method.label}
-                                            </h3>
-                                            <p className="text-sm text-muted-foreground mb-2">
-                                                {method.description}
-                                            </p>
-                                            <p
-                                                className={`font-medium ${method.color} break-all`}
-                                            >
+                                            <a href={method.href}>
                                                 {method.value}
-                                            </p>
-                                        </div>
+                                            </a>
+                                        </Button>
                                     </CardContent>
                                 </Card>
-                            </a>
-                        );
-                    })}
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Contact Form / Message */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <Card className="glass-surface">
+                            <CardContent className="p-8">
+                                <h3 className="text-2xl font-medium mb-4 text-center">
+                                    Let's Work Together
+                                </h3>
+                                <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto font-light">
+                                    I'm always interested in hearing about new
+                                    projects and opportunities. Whether you have
+                                    a question or just want to say hi, feel free
+                                    to reach out!
+                                </p>
+
+                                <div className="text-center">
+                                    <Button
+                                        size="lg"
+                                        className="rounded-full px-8"
+                                        asChild
+                                    >
+                                        <a href="mailto:mohammadtanim@example.com">
+                                            <Mail className="mr-2 h-4 w-4" />
+                                            Send Me an Email
+                                        </a>
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+
+                    {/* Location Info */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="mt-12 text-center"
+                    >
+                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                            <MapPin className="h-4 w-4" />
+                            <span>
+                                Based in Bangladesh, Available for Remote Work
+                                Worldwide
+                            </span>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

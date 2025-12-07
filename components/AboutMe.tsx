@@ -1,115 +1,183 @@
-export default function AboutMe() {
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeIn, fadeInUp, scaleIn, cardHover } from "@/lib/motion";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { User, Code, Award, Target } from "lucide-react";
+
+const highlights = [
+    {
+        icon: Code,
+        title: "Clean Code",
+        description:
+            "Writing maintainable, scalable, and efficient code with best practices",
+    },
+    {
+        icon: Award,
+        title: "Problem Solver",
+        description: "Turning complex challenges into elegant solutions",
+    },
+    {
+        icon: Target,
+        title: "Goal Oriented",
+        description:
+            "Focused on delivering high-quality products that meet business needs",
+    },
+];
+
+export function AboutMe() {
     return (
-        <section id="about" className="py-16 md:py-24 lg:py-32 bg-muted/30">
-            <div className="container px-4 md:px-6">
-                {/* Section Header */}
-                <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        About Me
+        <section id="about" className="py-24 md:py-16">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
+                        About <span className="gradient-text">Me</span>
                     </h2>
-                    <div className="w-20 h-1 bg-primary mx-auto"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-accent to-accent-alt mx-auto rounded-full" />
+                </motion.div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    {/* Text Content */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerChildren}
+                        className="space-y-6"
+                    >
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
+                        >
+                            I'm a passionate full-stack developer with a keen
+                            eye for design and a love for creating seamless user
+                            experiences. With expertise in modern web
+                            technologies, I transform ideas into powerful
+                            digital solutions.
+                        </motion.p>
+
+                        <motion.p
+                            variants={fadeInUp}
+                            className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
+                        >
+                            My journey in web development has been driven by
+                            curiosity and a constant desire to learn. I enjoy
+                            tackling complex problems and staying up-to-date
+                            with the latest industry trends and best practices.
+                        </motion.p>
+
+                        {/* Key Info */}
+                        <motion.div
+                            variants={fadeInUp}
+                            className="grid grid-cols-2 gap-4 pt-4"
+                        >
+                            {[
+                                { label: "Location", value: "Bangladesh" },
+                                { label: "Experience", value: "2+ Years" },
+                                { label: "Status", value: "Available" },
+                                { label: "Remote", value: "Open" },
+                            ].map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="glass-surface rounded-xl p-4"
+                                >
+                                    <div className="text-sm text-muted-foreground">
+                                        {item.label}
+                                    </div>
+                                    <div className="font-medium">
+                                        {item.value}
+                                    </div>
+                                </div>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Highlights */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerChildren}
+                        className="space-y-4"
+                    >
+                        {highlights.map((highlight, index) => (
+                            <motion.div
+                                key={highlight.title}
+                                variants={cardHover}
+                                whileHover="hover"
+                                initial="rest"
+                                className="glass-surface rounded-2xl p-6 hover-lift cursor-default"
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 rounded-xl bg-gradient-to-br from-accent/10 to-accent-alt/10">
+                                        <highlight.icon className="h-6 w-6 text-accent" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="text-xl font-medium mb-2">
+                                            {highlight.title}
+                                        </h3>
+                                        <p className="text-muted-foreground font-light">
+                                            {highlight.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
 
-                {/* Content Grid */}
-                <div className="space-y-12 md:space-y-16">
-                    {/* My Journey */}
-                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
-                            My Journey
-                        </h3>
-                        <div className="text-muted-foreground leading-relaxed space-y-4">
-                            <p>
-                                My journey into web development began with a
-                                curiosity about how things work on the internet.
-                                What started as tinkering with HTML and CSS
-                                quickly evolved into a deep passion for building
-                                full-stack applications that make a real
-                                difference.
-                            </p>
-                            <p>
-                                Over the years, I've had the privilege of
-                                working on diverse projects—from e-commerce
-                                platforms to complex enterprise solutions. Each
-                                project taught me something new, whether it was
-                                mastering a cutting-edge framework, optimizing
-                                performance, or collaborating with talented
-                                teams to deliver exceptional results.
-                            </p>
-                            <p>
-                                Today, I specialize in modern web technologies
-                                like Next.js, React, TypeScript, and Node.js.
-                                I'm committed to writing clean, maintainable
-                                code and creating seamless user experiences that
-                                users love.
-                            </p>
-                        </div>
+                {/* Technologies Preview */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="mt-16 text-center"
+                >
+                    <h3 className="text-2xl font-extralight mb-6">
+                        Technologies I Work With
+                    </h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        {[
+                            "React",
+                            "Next.js",
+                            "TypeScript",
+                            "Node.js",
+                            "Python",
+                            "Tailwind CSS",
+                            "PostgreSQL",
+                            "MongoDB",
+                            "Docker",
+                            "AWS",
+                        ].map((tech) => (
+                            <Badge
+                                key={tech}
+                                variant="secondary"
+                                className="px-4 py-2 rounded-full text-sm font-medium"
+                            >
+                                {tech}
+                            </Badge>
+                        ))}
                     </div>
-
-                    {/* What I Enjoy */}
-                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
-                            What I Enjoy
-                        </h3>
-                        <div className="text-muted-foreground leading-relaxed space-y-4">
-                            <p>
-                                I thrive on solving complex problems and turning
-                                ideas into reality. There's something incredibly
-                                satisfying about taking a concept from
-                                whiteboard sketches to a fully functional,
-                                polished application.
-                            </p>
-                            <p>
-                                I'm particularly passionate about performance
-                                optimization and creating intuitive user
-                                interfaces. I believe that great software should
-                                not only work flawlessly but also feel
-                                effortless to use. Whether it's shaving
-                                milliseconds off load times or crafting
-                                pixel-perfect designs, I pay attention to the
-                                details that matter.
-                            </p>
-                            <p>
-                                Continuous learning is at the core of what I do.
-                                The tech landscape is always evolving, and I
-                                love staying up-to-date with the latest trends,
-                                experimenting with new tools, and sharing
-                                knowledge with the developer community.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Hobbies & Personality */}
-                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                        <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
-                            Hobbies & Personality
-                        </h3>
-                        <div className="text-muted-foreground leading-relaxed space-y-4">
-                            <p>
-                                When I'm not coding, you'll find me exploring
-                                new coffee shops, diving into a good sci-fi
-                                novel, or experimenting with photography. I'm a
-                                firm believer in work-life balance—taking time
-                                to recharge fuels creativity and productivity.
-                            </p>
-                            <p>
-                                I'm naturally curious and love learning about
-                                topics beyond tech, from psychology to design
-                                principles. I find that these diverse interests
-                                often inform my approach to development, helping
-                                me build products that are not only technically
-                                sound but also human-centered.
-                            </p>
-                            <p>
-                                At my core, I'm a problem solver and a team
-                                player. I value open communication,
-                                collaboration, and always strive to bring a
-                                positive, solution-oriented mindset to every
-                                project I work on.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
 }
+
+const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
