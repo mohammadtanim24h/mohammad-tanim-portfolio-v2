@@ -18,9 +18,19 @@ const skillCategories = [
         skills: skillsData.backend,
     },
     {
-        title: "Tools & Others",
+        title: "Database",
+        icon: "🗄️",
+        skills: skillsData.database,
+    },
+    {
+        title: "DevOps & Tools",
         icon: "🛠️",
         skills: skillsData.tools,
+    },
+    {
+        title: "AI & LLMs",
+        icon: "🤖",
+        skills: skillsData.ai,
     },
 ];
 
@@ -46,7 +56,7 @@ export function Skills() {
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={staggerChildren}
-                    className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
                 >
                     {skillCategories.map((category, categoryIndex) => (
                         <motion.div
@@ -124,15 +134,17 @@ export function Skills() {
                                 Always Learning
                             </h3>
                             <p className="text-muted-foreground text-center mb-6 max-w-2xl mx-auto font-light">
-                                I'm constantly exploring new technologies and
-                                improving my skills. Currently diving deep into:
+                                Specializing in AI-powered applications and full-stack development.
+                                Always exploring new technologies to deliver innovative solutions.
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {[
-                                    "AI/ML Integration",
-                                    "Web3 & Blockchain",
-                                    "Advanced TypeScript",
-                                    "System Design",
+                                    "AI Interviewer Chatbots",
+                                    "Inventory Management",
+                                    "Asset Tracking Systems",
+                                    "Performance Optimization",
+                                    "CI/CD Pipelines",
+                                    "Real-time Applications",
                                 ].map((topic) => (
                                     <Badge
                                         key={topic}

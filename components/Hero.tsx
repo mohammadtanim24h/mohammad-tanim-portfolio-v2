@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useTheme } from "next-themes";
-import { ArrowDown, Download, ExternalLink } from "lucide-react";
+import { ArrowDown, Download, ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
@@ -87,6 +87,9 @@ export function Hero() {
                                 variant="outline"
                                 size="lg"
                                 className="rounded-full hover-lift"
+                                onClick={() =>
+                                    window.open("/resume.pdf", "_blank")
+                                }
                             >
                                 Download CV
                                 <Download className="ml-2 h-4 w-4" />
@@ -94,27 +97,19 @@ export function Hero() {
                         </motion.div>
 
                         <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
                             variants={fadeInUp}
-                            className="flex gap-6 mt-12 justify-center lg:justify-start"
+                            className="mt-8"
                         >
-                            {[
-                                { label: "2+", value: "Years Experience" },
-                                { label: "20+", value: "Projects Completed" },
-                                { label: "5+", value: "Technologies" },
-                            ].map((stat, index) => (
-                                <motion.div
-                                    key={stat.label}
-                                    variants={fadeInUp}
-                                    className="text-center"
-                                >
-                                    <div className="text-3xl md:text-4xl font-light gradient-text">
-                                        {stat.label}
-                                    </div>
-                                    <div className="text-sm text-muted-foreground font-light">
-                                        {stat.value}
-                                    </div>
-                                </motion.div>
-                            ))}
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <MapPin className="h-4 w-4" />
+                                <span>
+                                    Based in Bangladesh, Available for Remote
+                                    Work Worldwide
+                                </span>
+                            </div>
                         </motion.div>
                     </motion.div>
 

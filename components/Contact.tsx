@@ -10,23 +10,23 @@ const contactMethods = [
     {
         icon: Mail,
         label: "Email",
-        value: "mohammadtanim@example.com",
-        href: "mailto:mohammadtanim@example.com",
+        value: "mohammad.tanim24h@gmail.com",
+        href: "mailto:mohammad.tanim24h@gmail.com",
         description: "Send me a message anytime",
     },
     {
         icon: Phone,
         label: "Phone",
-        value: "+880 1234-567890",
-        href: "tel:+8801234567890",
+        value: "+880 1916602197",
+        href: "tel:+8801916602197",
         description: "Available for calls",
     },
     {
         icon: MessageCircle,
-        label: "WhatsApp",
-        value: "+880 1234-567890",
-        href: "https://wa.me/8801234567890",
-        description: "Quick chat support",
+        label: "LinkedIn",
+        value: "linkedin.com/in/mohammad-tanim",
+        href: "https://linkedin.com/in/mohammad-tanim",
+        description: "Connect professionally",
     },
 ];
 
@@ -86,58 +86,6 @@ export function Contact() {
                                 </Card>
                             </motion.div>
                         ))}
-                    </motion.div>
-
-                    {/* Contact Form / Message */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <Card className="glass-surface">
-                            <CardContent className="p-8">
-                                <h3 className="text-2xl font-medium mb-4 text-center">
-                                    Let's Work Together
-                                </h3>
-                                <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto font-light">
-                                    I'm always interested in hearing about new
-                                    projects and opportunities. Whether you have
-                                    a question or just want to say hi, feel free
-                                    to reach out!
-                                </p>
-
-                                <div className="text-center">
-                                    <Button
-                                        size="lg"
-                                        className="rounded-full px-8"
-                                        asChild
-                                    >
-                                        <a href="mailto:mohammadtanim@example.com">
-                                            <Mail className="mr-2 h-4 w-4" />
-                                            Send Me an Email
-                                        </a>
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </motion.div>
-
-                    {/* Location Info */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                        className="mt-12 text-center"
-                    >
-                        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                            <MapPin className="h-4 w-4" />
-                            <span>
-                                Based in Bangladesh, Available for Remote Work
-                                Worldwide
-                            </span>
-                        </div>
                     </motion.div>
                 </div>
             </div>

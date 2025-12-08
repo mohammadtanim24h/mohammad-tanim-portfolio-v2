@@ -56,21 +56,21 @@ export function AboutMe() {
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
                         >
-                            I'm a passionate full-stack developer with a keen
-                            eye for design and a love for creating seamless user
-                            experiences. With expertise in modern web
-                            technologies, I transform ideas into powerful
-                            digital solutions.
+                            I'm a results-driven Full-Stack Engineer specializing in building
+                            scalable web applications for logistics, AI, and enterprise sectors.
+                            With expertise in React, Angular, Node.js, Django, and FastAPI,
+                            I transform complex business requirements into powerful digital solutions.
                         </motion.p>
 
                         <motion.p
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
                         >
-                            My journey in web development has been driven by
-                            curiosity and a constant desire to learn. I enjoy
-                            tackling complex problems and staying up-to-date
-                            with the latest industry trends and best practices.
+                            My journey in web development has been marked by a passion for
+                            creating efficient systems that drive business value. From building
+                            inventory management systems that reduce manual data entry by 60%
+                            to developing AI-powered chatbots, I thrive on solving real-world challenges
+                            through technology.
                         </motion.p>
 
                         {/* Key Info */}
@@ -146,16 +146,25 @@ export function AboutMe() {
                     </h3>
                     <div className="flex flex-wrap gap-2 justify-center">
                         {[
-                            "React",
-                            "Next.js",
-                            "TypeScript",
-                            "Node.js",
+                            "JavaScript",
                             "Python",
-                            "Tailwind CSS",
-                            "PostgreSQL",
+                            "TypeScript",
+                            "React",
+                            "Angular",
+                            "Next.js",
+                            "Node.js",
+                            "Express",
+                            "Django",
+                            "FastAPI",
                             "MongoDB",
+                            "MySQL",
                             "Docker",
-                            "AWS",
+                            "Tailwind CSS",
+                            "Bootstrap",
+                            "Git",
+                            "AWS Lambda",
+                            "LangChain",
+                            "Ollama",
                         ].map((tech) => (
                             <Badge
                                 key={tech}

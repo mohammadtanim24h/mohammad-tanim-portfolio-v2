@@ -12,56 +12,34 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
     {
-        title: "Senior Full Stack Developer",
-        company: "Tech Innovations Inc.",
-        period: "Jan 2023 - Present",
-        location: "Remote",
+        title: "Software Developer",
+        company: "ShujaBITS Infotech Solutions Private Limited",
+        period: "June 2022 - Present",
+        location: "Bangladesh",
         description: [
-            "Led development of a microservices-based e-commerce platform serving 100K+ daily users",
-            "Architected and implemented scalable REST APIs using Node.js and PostgreSQL",
-            "Improved application performance by 40% through code optimization and caching strategies",
-            "Mentored junior developers and conducted code reviews to maintain high code quality",
-        ],
-        technologies: [
-            "Next.js",
-            "TypeScript",
-            "Node.js",
-            "PostgreSQL",
-            "AWS",
-            "Docker",
-        ],
-    },
-    {
-        title: "Full Stack Developer",
-        company: "Digital Solutions Ltd.",
-        period: "Mar 2021 - Dec 2022",
-        location: "Hybrid",
-        description: [
-            "Developed and maintained multiple client-facing web applications using React and Express",
-            "Implemented real-time features using WebSockets for collaborative tools",
-            "Collaborated with UX/UI designers to create intuitive and responsive interfaces",
-            "Reduced API response times by 30% through database query optimization",
+            "Designed, developed, and deployed full-stack web applications using React, Angular, Node.js, Express, Django, and FastAPI, serving clients in logistics, AI, and enterprise sectors",
+            "Built an Inventory Management System for logistics companies to manage inventory, automate stock tracking, and streamline warehouse operations, reducing manual data entry by 60%",
+            "Developed an AI Interviewer Chatbot using React, LangChain, and Ollama, integrating LLMs to simulate real-time interview experiences",
+            "Engineered an Asset Management Application for managing organizational as well as personal assets with real-time tracking, data visualization, and efficient asset categorization",
+            "Enhanced API performance and database efficiency through indexing, schema optimization, and query tuning, leading to up to 80% faster response times",
+            "Implemented Docker-based CI/CD pipelines, reducing deployment time and build errors by over 40%",
         ],
         technologies: [
             "React",
-            "Express.js",
+            "Angular",
+            "Node.js",
+            "Express",
+            "Django",
+            "FastAPI",
             "MongoDB",
-            "Redis",
+            "Mongoose",
+            "MySQL",
+            "Docker",
             "Tailwind CSS",
+            "Bootstrap",
+            "LangChain",
+            "Ollama",
         ],
-    },
-    {
-        title: "Frontend Developer",
-        company: "StartUp Ventures",
-        period: "Jun 2019 - Feb 2021",
-        location: "On-site",
-        description: [
-            "Built responsive web applications from Figma designs using React and Vue.js",
-            "Implemented state management solutions with Redux and Vuex",
-            "Worked closely with backend teams to integrate RESTful APIs",
-            "Participated in agile ceremonies and contributed to sprint planning",
-        ],
-        technologies: ["React", "Vue.js", "JavaScript", "SASS", "Git"],
     },
 ];
 
@@ -75,7 +53,7 @@ export function Experience() {
                 {/* Section Header */}
                 <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        Professional Experience
+                        Work Experience
                     </h2>
                     <div className="w-20 h-1 bg-primary mx-auto"></div>
                 </div>
