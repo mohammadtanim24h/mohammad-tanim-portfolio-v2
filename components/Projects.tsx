@@ -30,15 +30,18 @@ export function Projects() {
                             variants={fadeInUp}
                             className="group"
                         >
-                            <Card className="glass-surface overflow-hidden hover-lift h-full flex flex-col">
+                            <Card className="glass-surface overflow-hidden hover-lift h-full flex flex-col transform-gpu py-0">
                                 {/* Project Image */}
-                                <div className="relative overflow-hidden">
+                                <div className="relative overflow-hidden group/image">
                                     <div className="aspect-video relative bg-linear-to-br from-accent/5 to-accent-alt/5">
                                         <Image
                                             src={project.image}
                                             alt={project.title}
                                             fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                                            style={{
+                                                objectPosition: "top center",
+                                            }}
                                         />
                                     </div>
 
@@ -46,14 +49,15 @@ export function Projects() {
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         whileHover={{ opacity: 1 }}
-                                        className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-4"
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-4"
                                     >
                                         {project.demoLink && (
                                             <Button
                                                 size="sm"
                                                 variant="secondary"
                                                 asChild
-                                                className="rounded-full"
+                                                className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-lg"
                                             >
                                                 <Link
                                                     href={project.demoLink}
@@ -68,7 +72,7 @@ export function Projects() {
                                             size="sm"
                                             variant="secondary"
                                             asChild
-                                            className="rounded-full"
+                                            className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 delay-75 shadow-lg"
                                         >
                                             <Link
                                                 href={project.githubLink}
@@ -82,55 +86,59 @@ export function Projects() {
                                 </div>
 
                                 <CardContent className="p-6 flex-1 flex flex-col">
+                                    {/* Project Title and Description */}
                                     <div className="flex-1">
                                         <Link
                                             href={`/projects/${project.slug}`}
                                         >
-                                            <h3 className="text-xl font-medium mb-2 group-hover:text-accent transition-colors">
+                                            <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-colors duration-200">
                                                 {project.title}
                                             </h3>
                                         </Link>
-                                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">
                                             {project.description}
                                         </p>
                                     </div>
 
                                     {/* Tech Stack */}
-                                    <div className="flex flex-wrap gap-2 mb-4">
+                                    <div className="flex flex-wrap gap-1.5 mb-5">
                                         {project.techStack
-                                            .slice(0, 3)
+                                            .slice(0, 4)
                                             .map((tech) => (
                                                 <Badge
                                                     key={tech}
                                                     variant="secondary"
-                                                    className="text-xs font-normal"
+                                                    className="text-xs font-medium px-2.5 py-1"
                                                 >
                                                     {tech}
                                                 </Badge>
                                             ))}
-                                        {project.techStack.length > 3 && (
+                                        {project.techStack.length > 4 && (
                                             <Badge
                                                 variant="outline"
-                                                className="text-xs font-normal"
+                                                className="text-xs font-medium px-2.5 py-1"
                                             >
-                                                +{project.techStack.length - 3}
+                                                +{project.techStack.length - 4}
                                             </Badge>
                                         )}
                                     </div>
 
                                     {/* View Details Button */}
-                                    <Button
-                                        variant="ghost"
-                                        className="w-full group/btn justify-between"
-                                        asChild
-                                    >
-                                        <Link
-                                            href={`/projects/${project.slug}`}
+                                    <div className="mt-auto">
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            className="w-full group/btn justify-between hover:bg-accent/10 hover:text-accent transition-all duration-200"
+                                            asChild
                                         >
-                                            View Details
-                                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                                        </Link>
-                                    </Button>
+                                            <Link
+                                                href={`/projects/${project.slug}`}
+                                            >
+                                                View Details
+                                                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+                                            </Link>
+                                        </Button>
+                                    </div>
                                 </CardContent>
                             </Card>
                         </motion.div>
