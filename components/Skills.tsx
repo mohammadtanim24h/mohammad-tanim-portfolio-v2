@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
@@ -134,8 +134,9 @@ export function Skills() {
                                 Always Learning
                             </h3>
                             <p className="text-muted-foreground text-center mb-6 max-w-2xl mx-auto font-light">
-                                Specializing in AI-powered applications and full-stack development.
-                                Always exploring new technologies to deliver innovative solutions.
+                                Specializing in AI-powered applications and
+                                full-stack development. Always exploring new
+                                technologies to deliver innovative solutions.
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {[

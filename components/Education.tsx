@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
 import { GraduationCap, Calendar, BookOpen } from "lucide-react";
@@ -15,7 +15,7 @@ const educationData = [
         description: [
             "Focused on business administration with specialization in Accounting",
             "Developing strong analytical and financial management skills",
-            "Applying business principles to software development and project management"
+            "Applying business principles to software development and project management",
         ],
     },
 ];
@@ -83,7 +83,10 @@ export function Education() {
 
                                     <div className="space-y-2">
                                         {edu.description.map((item, idx) => (
-                                            <div key={idx} className="flex gap-2">
+                                            <div
+                                                key={idx}
+                                                className="flex gap-2"
+                                            >
                                                 <span className="text-accent mt-1.5 shrink-0">
                                                     •
                                                 </span>

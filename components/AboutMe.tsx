@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { fadeIn, fadeInUp, scaleIn, cardHover } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -56,21 +56,24 @@ export function AboutMe() {
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
                         >
-                            I'm a results-driven Full-Stack Engineer specializing in building
-                            scalable web applications for logistics, AI, and enterprise sectors.
-                            With expertise in React, Angular, Node.js, Django, and FastAPI,
-                            I transform complex business requirements into powerful digital solutions.
+                            I'm a results-driven Full-Stack Engineer
+                            specializing in building scalable web applications
+                            for logistics, AI, and enterprise sectors. With
+                            expertise in React, Angular, Node.js, Django, and
+                            FastAPI, I transform complex business requirements
+                            into powerful digital solutions.
                         </motion.p>
 
                         <motion.p
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
                         >
-                            My journey in web development has been marked by a passion for
-                            creating efficient systems that drive business value. From building
-                            inventory management systems that reduce manual data entry by 60%
-                            to developing AI-powered chatbots, I thrive on solving real-world challenges
-                            through technology.
+                            My journey in web development has been marked by a
+                            passion for creating efficient systems that drive
+                            business value. From building inventory management
+                            systems that reduce manual data entry by 60% to
+                            developing AI-powered chatbots, I thrive on solving
+                            real-world challenges through technology.
                         </motion.p>
 
                         {/* Key Info */}

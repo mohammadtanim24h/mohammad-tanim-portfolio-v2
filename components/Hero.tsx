@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useTheme } from "next-themes";
 import { ArrowDown, Download, ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -115,7 +115,13 @@ export function Hero() {
                     </motion.div>
 
                     {/* Image */}
-                    <div className="flex items-center justify-center">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeIn}
+                        className="flex items-center justify-center"
+                    >
                         <ProfileCard
                             name=""
                             title=""
@@ -125,7 +131,7 @@ export function Hero() {
                             behindGlowEnabled={false}
                             enableMobileTilt={true}
                         />
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Scroll Indicator */}
