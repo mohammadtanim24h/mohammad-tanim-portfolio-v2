@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { fadeInUp, cardHover } from "@/lib/motion";
-import { Badge } from "@/components/ui/badge";
 import { Code, Award, Target } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
@@ -112,50 +111,6 @@ export function AboutMe() {
                         ))}
                     </motion.div>
                 </div>
-
-                {/* Technologies Preview */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                    className="mt-16 text-center"
-                >
-                    <h3 className="text-2xl font-extralight mb-6">
-                        Technologies I Work With
-                    </h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                        {[
-                            "JavaScript",
-                            "Python",
-                            "TypeScript",
-                            "React",
-                            "Angular",
-                            "Next.js",
-                            "Node.js",
-                            "Express",
-                            "Django",
-                            "FastAPI",
-                            "MongoDB",
-                            "MySQL",
-                            "Docker",
-                            "Tailwind CSS",
-                            "Bootstrap",
-                            "Git",
-                            "AWS Lambda",
-                            "LangChain",
-                            "Ollama",
-                        ].map((tech) => (
-                            <Badge
-                                key={tech}
-                                variant="secondary"
-                                className="px-4 py-2 rounded-full text-sm font-medium"
-                            >
-                                {tech}
-                            </Badge>
-                        ))}
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

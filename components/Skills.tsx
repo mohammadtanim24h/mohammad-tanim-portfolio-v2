@@ -1,35 +1,35 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
 import { skillsData } from "@/lib/data";
+import { Monitor, Server, Database, Wrench, Brain } from "lucide-react";
 
 const skillCategories = [
     {
         title: "Frontend",
-        icon: "🎨",
+        icon: Monitor,
         skills: skillsData.frontend,
     },
     {
         title: "Backend",
-        icon: "⚙️",
+        icon: Server,
         skills: skillsData.backend,
     },
     {
         title: "Database",
-        icon: "🗄️",
+        icon: Database,
         skills: skillsData.database,
     },
     {
         title: "DevOps & Tools",
-        icon: "🛠️",
+        icon: Wrench,
         skills: skillsData.tools,
     },
     {
         title: "AI & LLMs",
-        icon: "🤖",
+        icon: Brain,
         skills: skillsData.ai,
     },
 ];
@@ -51,29 +51,27 @@ export function Skills() {
                     <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
 
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={staggerChildren}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
-                >
+                {/* Row-based layout for each category */}
+                <div className="space-y-12">
                     {skillCategories.map((category, categoryIndex) => (
                         <motion.div
                             key={category.title}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
                             variants={fadeInUp}
                             className="space-y-6"
                         >
-                            <div className="text-center">
-                                <div className="text-4xl mb-2">
-                                    {category.icon}
-                                </div>
+                            {/* Category Header */}
+                            <div className="flex items-center gap-3">
+                                <category.icon className="h-8 w-8 text-accent" />
                                 <h3 className="text-2xl font-medium">
                                     {category.title}
                                 </h3>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3">
+                            {/* Skills Row - Horizontal scroll on mobile, wrap on desktop */}
+                            <div className="flex justify-center md:justify-start flex-wrap gap-4">
                                 {category.skills.map((skill, skillIndex) => (
                                     <motion.div
                                         key={skill.name}
@@ -88,29 +86,21 @@ export function Skills() {
                                                 duration: 0.4,
                                             },
                                         }}
-                                        whileHover={{
-                                            scale: 1.05,
-                                            transition: { duration: 0.2 },
-                                        }}
+                                        className="shrink-0"
                                     >
-                                        <Card className="group relative overflow-hidden glass-surface hover-lift cursor-default">
-                                            <CardContent className="p-4">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="relative w-10 h-10 flex items-center justify-center">
-                                                        <skill.icon className="h-6 w-6 text-accent" />
-                                                    </div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <h4 className="font-medium text-sm truncate">
-                                                            {skill.name}
-                                                        </h4>
-                                                        <p className="text-xs text-muted-foreground">
-                                                            {skill.level}
-                                                        </p>
-                                                    </div>
+                                        <Card className="group relative overflow-hidden glass-surface cursor-default w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36">
+                                            <CardContent className="p-0 h-full flex items-center justify-center">
+                                                <div className="flex flex-col items-center justify-center gap-3">
+                                                    {/* Large Icon */}
+                                                    <skill.icon className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 text-accent" />
+                                                    {/* Skill Name - Only visible on hover or larger screens */}
+                                                    <p className="text-sm font-medium text-center px-2">
+                                                        {skill.name}
+                                                    </p>
                                                 </div>
 
                                                 {/* Hover Effect */}
-                                                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-accent-alt/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                {/* <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-accent-alt/5" /> */}
                                             </CardContent>
                                         </Card>
                                     </motion.div>
@@ -118,47 +108,7 @@ export function Skills() {
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
-
-                {/* Additional Skills Section */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                    className="mt-16"
-                >
-                    <Card className="glass-surface">
-                        <CardContent className="p-8">
-                            <h3 className="text-xl font-medium mb-6 text-center">
-                                Always Learning
-                            </h3>
-                            <p className="text-muted-foreground text-center mb-6 max-w-2xl mx-auto font-light">
-                                Specializing in AI-powered applications and
-                                full-stack development. Always exploring new
-                                technologies to deliver innovative solutions.
-                            </p>
-                            <div className="flex flex-wrap gap-2 justify-center">
-                                {[
-                                    "AI Interviewer Chatbots",
-                                    "Inventory Management",
-                                    "Asset Tracking Systems",
-                                    "Performance Optimization",
-                                    "CI/CD Pipelines",
-                                    "Real-time Applications",
-                                ].map((topic) => (
-                                    <Badge
-                                        key={topic}
-                                        variant="outline"
-                                        className="px-4 py-2 rounded-full"
-                                    >
-                                        {topic}
-                                    </Badge>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
