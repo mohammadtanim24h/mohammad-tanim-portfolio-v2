@@ -1,23 +1,14 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useTheme } from "next-themes";
 import { ArrowDown, Download, ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import {
-    fadeIn,
-    fadeInUp,
-    fadeInLeft,
-    fadeInRight,
-    floatAnimation,
-} from "@/lib/motion";
+import { fadeIn, fadeInUp } from "@/lib/motion";
 import ProfileCard from "./ProfileCard";
 import AuroraText from "./AuroraText";
 
 export function Hero() {
     const { scrollY } = useScroll();
-    const { theme } = useTheme();
 
     const y = useTransform(scrollY, [0, 500], [0, 150]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -106,7 +97,7 @@ export function Hero() {
                             variants={fadeInUp}
                             className="mt-8"
                         >
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <div className="flex md:items-center gap-2 text-sm text-muted-foreground">
                                 <MapPin className="h-4 w-4" />
                                 <span>
                                     Based in Bangladesh, Available for Remote
@@ -144,7 +135,7 @@ export function Hero() {
                         y: 0,
                         transition: { delay: 1 },
                     }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                    className="flex justify-center items-center mt-6"
                 >
                     <motion.div
                         animate={{ y: [0, 10, 0] }}

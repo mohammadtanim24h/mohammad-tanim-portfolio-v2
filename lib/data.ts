@@ -48,7 +48,6 @@ export const skillsData = {
         { name: "Django", icon: SiDjango },
         { name: "FastAPI", icon: SiFastapi },
         { name: "Python", icon: SiPython },
-        { name: "SQL", icon: SiMysql },
     ],
     database: [
         { name: "MongoDB", icon: SiMongodb },
