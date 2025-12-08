@@ -12,6 +12,7 @@ import {
     fadeInRight,
     floatAnimation,
 } from "@/lib/motion";
+import ProfileCard from "./ProfileCard";
 
 export function Hero() {
     const { scrollY } = useScroll();
@@ -114,74 +115,17 @@ export function Hero() {
                     </motion.div>
 
                     {/* Image */}
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={floatAnimation}
-                        className="relative mx-auto lg:ml-auto"
-                    >
-                        <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-                            {/* Glow Effect */}
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.05, 1],
-                                    opacity: [0.5, 0.8, 0.5],
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                className="absolute inset-0 rounded-full bg-linear-to-br from-accent/20 to-accent-alt/20 blur-xl"
-                            />
-
-                            {/* Image Container */}
-                            <motion.div
-                                whileHover={{
-                                    scale: 1.05,
-                                    rotate: [0, 1, -1, 0],
-                                    transition: { duration: 0.5 },
-                                }}
-                                className="relative rounded-3xl overflow-hidden shadow-xlarge glass-surface p-1"
-                            >
-                                <div className="relative rounded-3xl overflow-hidden bg-linear-to-br from-accent/5 to-accent-alt/5">
-                                    <Image
-                                        src="/hero-photo.png"
-                                        alt="Mohammad Tanim"
-                                        width={400}
-                                        height={400}
-                                        className="w-full h-full object-cover"
-                                        priority
-                                    />
-                                </div>
-                            </motion.div>
-
-                            {/* Decorative Elements */}
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{
-                                    duration: 20,
-                                    repeat: Infinity,
-                                    ease: "linear",
-                                }}
-                                className="absolute -top-4 -right-4 w-20 h-20"
-                            >
-                                <div className="w-full h-full rounded-full bg-linear-to-br from-accent/20 to-transparent blur-sm" />
-                            </motion.div>
-
-                            <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{
-                                    duration: 15,
-                                    repeat: Infinity,
-                                    ease: "linear",
-                                }}
-                                className="absolute -bottom-4 -left-4 w-16 h-16"
-                            >
-                                <div className="w-full h-full rounded-full bg-linear-to-tr from-accent-alt/20 to-transparent blur-sm" />
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                    <div className="flex items-center justify-center">
+                        <ProfileCard
+                            name=""
+                            title=""
+                            avatarUrl="/hero-photo.png"
+                            showUserInfo={false}
+                            enableTilt={true}
+                            behindGlowEnabled={false}
+                            enableMobileTilt={true}
+                        />
+                    </div>
                 </div>
 
                 {/* Scroll Indicator */}
