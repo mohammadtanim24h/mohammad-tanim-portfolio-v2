@@ -37,8 +37,9 @@ export function AboutMe() {
                     variants={fadeIn}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
-                        About <span className="gradient-text">Me</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
+                        About{" "}
+                        <span className="font-bold gradient-text">Me</span>
                     </h2>
                     <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
                 </motion.div>
@@ -56,24 +57,12 @@ export function AboutMe() {
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
                         >
-                            I'm a results-driven Full-Stack Engineer
-                            specializing in building scalable web applications
-                            for logistics, AI, and enterprise sectors. With
-                            expertise in React, Angular, Node.js, Django, and
-                            FastAPI, I transform complex business requirements
-                            into powerful digital solutions.
-                        </motion.p>
-
-                        <motion.p
-                            variants={fadeInUp}
-                            className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed"
-                        >
-                            My journey in web development has been marked by a
-                            passion for creating efficient systems that drive
-                            business value. From building inventory management
-                            systems that reduce manual data entry by 60% to
-                            developing AI-powered chatbots, I thrive on solving
-                            real-world challenges through technology.
+                            I'm a results-oriented Full-Stack Developer focused
+                            on creating scalable web applications for logistics,
+                            AI, and enterprise fields. I have skills in React,
+                            Angular, Next.js, Node.js, Django, and FastAPI. I
+                            turn complex business needs into effective digital
+                            solutions.
                         </motion.p>
 
                         {/* Key Info */}
@@ -83,7 +72,7 @@ export function AboutMe() {
                         >
                             {[
                                 { label: "Location", value: "Bangladesh" },
-                                { label: "Experience", value: "2+ Years" },
+                                { label: "Experience", value: "3.5+ Years" },
                                 { label: "Status", value: "Available" },
                                 { label: "Remote", value: "Open" },
                             ].map((item) => (

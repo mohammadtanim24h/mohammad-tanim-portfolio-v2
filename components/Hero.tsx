@@ -52,20 +52,20 @@ export function Hero() {
                         className="text-center lg:text-left"
                     >
                         <motion.h1 variants={fadeInUp} className="mb-6">
-                            <span className="block text-4xl md:text-6xl font-extralight tracking-tight">
+                            <span className="block text-4xl md:text-6xl font-semibold tracking-tight">
                                 Hi, I'm{" "}
                             </span>
-                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light gradient-text mt-2 wrap-break-word">
+                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold gradient-text mt-2 wrap-break-word">
                                 Mohammad Tanim
                             </span>
                         </motion.h1>
 
                         <motion.p
                             variants={fadeInUp}
-                            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 font-light"
+                            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 font-semibold"
                         >
-                            Full-stack developer crafting beautiful, scalable
-                            web experiences with modern technologies
+                            Full-Stack Developer | AI Integration | Tech
+                            Enthusiast
                         </motion.p>
 
                         <motion.div
