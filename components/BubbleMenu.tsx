@@ -24,49 +24,11 @@ export type BubbleMenuProps = {
     menuBg?: string;
     menuContentColor?: string;
     useFixedPosition?: boolean;
-    items?: MenuItem[];
+    items: MenuItem[];
     animationEase?: string;
     animationDuration?: number;
     staggerDelay?: number;
 };
-
-const DEFAULT_ITEMS: MenuItem[] = [
-    {
-        label: "home",
-        href: "#",
-        ariaLabel: "Home",
-        rotation: -8,
-        hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
-    },
-    {
-        label: "about",
-        href: "#",
-        ariaLabel: "About",
-        rotation: 8,
-        hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
-    },
-    {
-        label: "projects",
-        href: "#",
-        ariaLabel: "Documentation",
-        rotation: 8,
-        hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
-    },
-    {
-        label: "blog",
-        href: "#",
-        ariaLabel: "Blog",
-        rotation: 8,
-        hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
-    },
-    {
-        label: "contact",
-        href: "#",
-        ariaLabel: "Contact",
-        rotation: -8,
-        hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
-    },
-];
 
 export default function BubbleMenu({
     logo,
@@ -86,19 +48,20 @@ export default function BubbleMenu({
     const [showOverlay, setShowOverlay] = useState(false);
 
     const overlayRef = useRef<HTMLDivElement>(null);
-    const bubblesRef = useRef<HTMLAnchorElement[]>([]);
+    const bubblesRef = useRef<HTMLButtonElement[]>([]);
     const labelRefs = useRef<HTMLSpanElement[]>([]);
 
-    const menuItems = items?.length ? items : DEFAULT_ITEMS;
+    const menuItems = items;
 
     const containerClassName = [
         "bubble-menu",
-        useFixedPosition ? "fixed" : "absolute",
-        "left-0 right-0 top-8",
+        useFixedPosition ? "fixed" : "fixed",
+        "left-0 right-0 top-0",
         "flex items-center justify-between",
-        "gap-4 px-4 md:px-16",
+        "gap-4 px-4 md:px-16 py-3",
         "pointer-events-none",
         "z-[1001]",
+        "bg-background/80 backdrop-blur-md border-b border-border/50",
         className,
     ]
         .filter(Boolean)
@@ -109,6 +72,49 @@ export default function BubbleMenu({
         if (nextState) setShowOverlay(true);
         setIsMenuOpen(nextState);
         onMenuClick?.(nextState);
+    };
+
+    const handleNavClick = (
+        e: React.MouseEvent<HTMLButtonElement>,
+        href: string
+    ) => {
+        // Prevent any default behavior
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log("Navigating to:", href);
+
+        // Remove focus from the button
+        e.currentTarget.blur();
+
+        // Close menu immediately
+        setIsMenuOpen(false);
+        onMenuClick?.(false);
+
+        // Handle navigation after a brief delay to allow menu to start closing
+        setTimeout(() => {
+            if (href === "#") {
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+                // Scroll to section
+                const element = document.querySelector(href);
+                if (element) {
+                    const offset = 100; // Account for fixed header height
+                    const elementPosition =
+                        element.getBoundingClientRect().top +
+                        window.pageYOffset;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth",
+                    });
+                } else {
+                    console.error("Element not found for href:", href);
+                }
+            }
+        }, 100);
     };
 
     useEffect(() => {
@@ -192,6 +198,9 @@ export default function BubbleMenu({
         <>
             {/* Workaround for silly Tailwind capabilities */}
             <style>{`
+        .bubble-menu {
+          transition: background-color 0.3s ease;
+        }
         .bubble-menu .menu-line {
           transition: transform 0.3s ease, opacity 0.3s ease;
           transform-origin: center;
@@ -259,7 +268,7 @@ export default function BubbleMenu({
                     <span className="text-4xl font-thin tracking-[0.15em] text-foreground group-hover:text-accent transition-colors duration-300">
                         TANIM
                     </span>
-                    <span className="block h-0.5 w-0 group-hover:w-full bg-linear-to-r from-accent to-accent-alt transition-all duration-500 mt-1"></span>
+                    <span className="block h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-accent to-accent-alt transition-all duration-500 mt-1"></span>
                 </div>
 
                 <button
@@ -272,7 +281,7 @@ export default function BubbleMenu({
                         "bg-white",
                         "shadow-[0_4px_16px_rgba(0,0,0,0.12)]",
                         "pointer-events-auto",
-                        "w-12 h-12 md:w-14 md:h-14",
+                        "w-10 h-10",
                         "border-0 cursor-pointer p-0",
                         "will-change-transform",
                     ].join(" ")}
@@ -312,11 +321,12 @@ export default function BubbleMenu({
                     ref={overlayRef}
                     className={[
                         "bubble-menu-items",
-                        useFixedPosition ? "fixed" : "absolute",
+                        "fixed",
                         "inset-0",
                         "flex items-center justify-center",
                         "pointer-events-none",
                         "z-[1000]",
+                        !isMenuOpen ? "hidden" : "",
                     ].join(" ")}
                     aria-hidden={!isMenuOpen}
                 >
@@ -343,9 +353,11 @@ export default function BubbleMenu({
                                     "box-border",
                                 ].join(" ")}
                             >
-                                <a
+                                <button
                                     role="menuitem"
-                                    href={item.href}
+                                    onClick={(e) =>
+                                        handleNavClick(e, item.href)
+                                    }
                                     aria-label={item.ariaLabel || item.label}
                                     className={[
                                         "pill-link",
@@ -360,6 +372,9 @@ export default function BubbleMenu({
                                         "transition-[background,color] duration-300 ease-in-out",
                                         "box-border",
                                         "whitespace-nowrap overflow-hidden",
+                                        "border-0",
+                                        "cursor-pointer",
+                                        "focus:outline-none",
                                     ].join(" ")}
                                     style={
                                         {
@@ -405,7 +420,7 @@ export default function BubbleMenu({
                                     >
                                         {item.label}
                                     </span>
-                                </a>
+                                </button>
                             </li>
                         ))}
                     </ul>
