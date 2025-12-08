@@ -2,8 +2,10 @@
 
 import { motion } from "motion/react";
 import { fadeInUp, cardHover } from "@/lib/motion";
-import { Code, Award, Target } from "lucide-react";
+import { Code, Award, Target, Book } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+import { Card, CardContent } from "./ui/card";
+import { Badge } from "./ui/badge";
 
 const highlights = [
     {
@@ -13,15 +15,16 @@ const highlights = [
             "Writing maintainable, scalable, and efficient code with best practices",
     },
     {
-        icon: Award,
-        title: "Problem Solver",
-        description: "Turning complex challenges into elegant solutions",
-    },
-    {
         icon: Target,
         title: "Goal Oriented",
         description:
             "Focused on delivering high-quality products that meet business needs",
+    },
+    {
+        icon: Book,
+        title: "Continuous Learning",
+        description:
+            "Committed to continuous learning to stay current with modern technologies and best practices.",
     },
 ];
 
@@ -46,10 +49,10 @@ export function AboutMe() {
                         >
                             I'm a results-oriented Full-Stack Developer focused
                             on creating scalable web applications for logistics,
-                            AI, and enterprise fields. I have skills in React,
-                            Angular, Next.js, Node.js, Django, and FastAPI. I
-                            turn complex business needs into effective digital
-                            solutions.
+                            AI, and enterprise fields. I work with React,
+                            Next.js, AngularJS, Node.js, Python, Django, and
+                            top-to-bottom CI/CD workflows. I turn complex
+                            business needs into effective digital solutions.
                         </motion.p>
 
                         {/* Key Info */}

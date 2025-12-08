@@ -32,7 +32,7 @@ const awardsData = [
         title: "DevOps Workshop",
         organization: "Ostad",
         description: "Hands-on training completion",
-        date: "2023",
+        date: "2025",
         details:
             "Completed hands-on training covering CI/CD fundamentals, Docker, and deployment workflows",
         type: "certification",
@@ -60,88 +60,55 @@ export function Awards() {
                             whileHover={{ scale: 1.02 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <Card className="glass-surface hover-lift h-full">
-                                <CardContent className="p-6">
-                                    <div className="flex items-start gap-4 mb-4">
-                                        <div className="p-3 rounded-xl bg-linear-to-br from-accent/10 to-accent-alt/10">
+                            <Card className="glass-surface hover-lift h-full transform-gpu">
+                                <CardContent className="p-6 flex flex-col h-full">
+                                    {/* Icon and Header */}
+                                    <div className="flex items-start gap-4 mb-5">
+                                        <div className="p-3 rounded-xl bg-linear-to-br from-accent/10 to-accent-alt/10 shrink-0">
                                             <award.icon className="h-6 w-6 text-accent" />
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-medium mb-1">
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-lg font-semibold mb-1 leading-tight">
                                                 {award.title}
                                             </h3>
-                                            <p className="text-sm text-muted-foreground font-light">
+                                            <p className="text-sm text-muted-foreground">
                                                 {award.organization}
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-3">
-                                        <p className="text-muted-foreground font-light">
-                                            {award.description}
-                                        </p>
-                                        <p className="text-sm text-muted-foreground font-light italic">
-                                            {award.details}
-                                        </p>
-                                        <div className="flex items-center justify-between">
+                                    {/* Description Section */}
+                                    <div className="flex-1 flex flex-col justify-between space-y-4">
+                                        <div className="space-y-3">
+                                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                                {award.description}
+                                            </p>
+                                            <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                                                {award.details}
+                                            </p>
+                                        </div>
+
+                                        {/* Footer with Badge and Date */}
+                                        <div className="flex items-center justify-between pt-2">
                                             <Badge
                                                 variant={
                                                     award.type === "award"
                                                         ? "default"
                                                         : "secondary"
                                                 }
-                                                className="capitalize"
+                                                className="capitalize text-xs font-medium px-2.5 py-1"
                                             >
                                                 {award.type}
                                             </Badge>
-                                            <span className="text-sm text-muted-foreground">
+                                            <time className="text-xs text-muted-foreground font-medium">
                                                 {award.date}
-                                            </span>
+                                            </time>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </motion.div>
                     ))}
-                </motion.div>
-
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                    className="mt-16 text-center"
-                >
-                    <Card className="glass-surface max-w-2xl mx-auto">
-                        <CardContent className="p-8">
-                            <h3 className="text-2xl font-medium mb-4">
-                                Continuous Learning
-                            </h3>
-                            <p className="text-muted-foreground font-light mb-6">
-                                I believe in continuous improvement and
-                                regularly participate in workshops, courses, and
-                                training programs to stay updated with the
-                                latest technologies and best practices in
-                                software development.
-                            </p>
-                            <div className="flex flex-wrap gap-2 justify-center">
-                                {[
-                                    "Full-Stack Development",
-                                    "DevOps Practices",
-                                    "AI/ML Integration",
-                                    "Performance Optimization",
-                                ].map((skill) => (
-                                    <Badge
-                                        key={skill}
-                                        variant="outline"
-                                        className="px-4 py-2 rounded-full"
-                                    >
-                                        {skill}
-                                    </Badge>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
                 </motion.div>
             </div>
         </section>
