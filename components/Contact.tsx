@@ -4,8 +4,9 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerChildren } from "@/lib/motion";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+import { SiLinkedin } from "react-icons/si";
 
 const contactMethods = [
     {
@@ -23,7 +24,7 @@ const contactMethods = [
         description: "Available for calls",
     },
     {
-        icon: MessageCircle,
+        icon: SiLinkedin,
         label: "LinkedIn",
         value: "linkedin.com/in/mohammad-tanim",
         href: "https://linkedin.com/in/mohammad-tanim",
@@ -68,9 +69,18 @@ export function Contact() {
                                             asChild
                                             className="p-0 h-auto font-normal"
                                         >
-                                            <a href={method.href}>
-                                                {method.value}
-                                            </a>
+                                            {method.label === "LinkedIn" ? (
+                                                <a
+                                                    href={method.href}
+                                                    target="_blank"
+                                                >
+                                                    {method.value}
+                                                </a>
+                                            ) : (
+                                                <a href={method.href}>
+                                                    {method.value}
+                                                </a>
+                                            )}
                                         </Button>
                                     </CardContent>
                                 </Card>
