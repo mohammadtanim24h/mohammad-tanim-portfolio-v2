@@ -13,6 +13,7 @@ import {
     floatAnimation,
 } from "@/lib/motion";
 import ProfileCard from "./ProfileCard";
+import AuroraText from "./AuroraText";
 
 export function Hero() {
     const { scrollY } = useScroll();
@@ -56,7 +57,7 @@ export function Hero() {
                                 Hi, I'm{" "}
                             </span>
                             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold gradient-text mt-2 wrap-break-word">
-                                Mohammad Tanim
+                                <AuroraText></AuroraText>
                             </span>
                         </motion.h1>
 
