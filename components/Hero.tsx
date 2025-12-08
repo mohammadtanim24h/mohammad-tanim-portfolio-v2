@@ -56,7 +56,7 @@ export function Hero() {
                             <span className="block text-4xl md:text-6xl font-semibold tracking-tight">
                                 Hi, I'm{" "}
                             </span>
-                            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold gradient-text mt-2 wrap-break-word">
+                            <span>
                                 <AuroraText></AuroraText>
                             </span>
                         </motion.h1>
@@ -74,8 +74,9 @@ export function Hero() {
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
                             <Button
+                                variant="outline"
                                 size="lg"
-                                className="rounded-full shadow-medium hover-lift"
+                                className="shadow-medium cursor-pointer"
                                 onClick={() =>
                                     document
                                         .getElementById("projects")
@@ -88,7 +89,7 @@ export function Hero() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="rounded-full hover-lift"
+                                className="bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-800/30 text-blue-700 dark:text-blue-200 border-blue-200 dark:border-blue-700 cursor-pointer"
                                 onClick={() =>
                                     window.open("/resume.pdf", "_blank")
                                 }

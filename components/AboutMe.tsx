@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { fadeIn, fadeInUp, scaleIn, cardHover } from "@/lib/motion";
-import { Button } from "@/components/ui/button";
+import { fadeInUp, cardHover } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
-import { User, Code, Award, Target } from "lucide-react";
+import { Code, Award, Target } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const highlights = [
     {
@@ -30,19 +30,7 @@ export function AboutMe() {
     return (
         <section id="about" className="py-24 md:py-16">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeIn}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">
-                        About{" "}
-                        <span className="font-bold gradient-text">Me</span>
-                    </h2>
-                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
-                </motion.div>
+                <SectionHeader title="About Me" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Text Content */}
