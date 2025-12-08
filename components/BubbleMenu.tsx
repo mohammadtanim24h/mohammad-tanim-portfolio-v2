@@ -61,7 +61,7 @@ export default function BubbleMenu({
         "gap-4 px-4 md:px-16 py-3",
         "pointer-events-none",
         "z-[1001]",
-        "bg-background/80 backdrop-blur-md border-b border-border/50",
+        "bg-background/80 backdrop-blur-md border-b border-gray-500",
         className,
     ]
         .filter(Boolean)
@@ -100,7 +100,7 @@ export default function BubbleMenu({
                 // Scroll to section
                 const element = document.querySelector(href);
                 if (element) {
-                    const offset = 100; // Account for fixed header height
+                    const offset = 60; // Account for fixed header height
                     const elementPosition =
                         element.getBoundingClientRect().top +
                         window.pageYOffset;

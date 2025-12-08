@@ -88,90 +88,56 @@ export interface Project {
 export const projectsData: Project[] = [
     {
         id: 1,
-        slug: "ecommerce-platform",
-        title: "E-Commerce Platform",
-        image: "/projects/ecommerce.jpg",
+        slug: "smart-task-manager",
+        title: "Smart Task Manager",
+        image: "/projects/smart-task-manager.png",
         description:
-            "A full-stack e-commerce platform built with Next.js and PostgreSQL. Features include user authentication, product management, shopping cart, and secure payment processing with Stripe integration.",
+            "A modern task management application with user authentication, real-time updates, and an intuitive UI to create, organize, and track tasks efficiently.",
         techStack: [
-            "Next.js",
-            "TypeScript",
-            "PostgreSQL",
-            "Prisma",
-            "Stripe",
-            "Tailwind CSS",
+            "React",
+            "shadcn/ui",
+            "tailwindcss",
+            "React Router",
+            "MongoDB",
+            "Express.js",
+            "Node.js",
         ],
-        demoLink: "https://ecommerce-demo.example.com",
-        githubLink: "https://github.com/yourusername/ecommerce-platform",
+        demoLink: "https://smart-task-manager-24.netlify.app/",
+        githubLink: "https://github.com/mohammadtanim24h/smart-task-manager",
         challenges:
-            "Implementing real-time inventory management and handling concurrent transactions was challenging. I solved this by implementing optimistic locking with Prisma and using database transactions to ensure data consistency.",
+            "Implementing smooth state management for real-time task updates and optimizing API calls for performance under heavy usage.",
         improvements:
-            "Future improvements include adding a recommendation engine using machine learning, implementing multi-currency support, and creating a mobile app version using React Native.",
+            "Add role-based access control, integrate AI-based task prioritization, implement calendar sync with Google Calendar, add push notifications, and enable collaborative team boards with real-time updates.",
     },
     {
         id: 2,
-        slug: "task-management-app",
-        title: "Task Management App",
-        image: "/projects/task-manager.jpg",
+        slug: "active-wheels",
+        title: "Active Wheels",
+        image: "/projects/active-wheels.jpg",
         description:
-            "A collaborative task management application with real-time updates, team collaboration features, and advanced filtering. Built with React, Node.js, and Socket.io for real-time communication.",
-        techStack: [
-            "React",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "Socket.io",
-            "Redux",
-            "Material-UI",
-        ],
-        demoLink: "https://taskmanager-demo.example.com",
-        githubLink: "https://github.com/yourusername/task-manager",
+            "A full-featured inventory management system for the automotive industry with user authentication, real-time stock updates, and Stripe integration for seamless payment processing.",
+        techStack: ["MongoDB", "Express.js", "React", "Node.js", "Stripe"],
+        demoLink: "https://active-wheels.web.app/",
+        githubLink:
+            "https://github.com/mohammadtanim24h/active-wheels-client-side",
         challenges:
-            "The biggest challenge was implementing real-time synchronization across multiple clients without conflicts. I implemented operational transformation principles and conflict resolution strategies to handle simultaneous edits.",
+            "Handling complex inventory flows with dynamic product variations, ensuring accurate real-time updates for stock changes, and integrating Stripe payment securely.",
         improvements:
-            "Plan to add offline mode with IndexedDB, implement drag-and-drop Kanban boards, integrate with third-party tools like Slack and Google Calendar, and add AI-powered task prioritization.",
+            "Add predictive inventory management using AI, implement advanced reporting and analytics dashboards, enable multi-warehouse support, introduce automated stock alerts and reorder system, and integrate advanced payment features like subscriptions and invoicing via Stripe.",
     },
-    {
-        id: 3,
-        slug: "weather-dashboard",
-        title: "Weather Dashboard",
-        image: "/projects/weather-dashboard.jpg",
-        description:
-            "An interactive weather dashboard that displays current weather conditions, 7-day forecasts, and historical weather data. Features geolocation, favorite locations, and beautiful data visualizations.",
-        techStack: [
-            "Vue.js",
-            "TypeScript",
-            "Chart.js",
-            "OpenWeather API",
-            "Vuex",
-            "TailwindCSS",
-        ],
-        demoLink: "https://weather-dashboard.example.com",
-        githubLink: "https://github.com/yourusername/weather-dashboard",
-        challenges:
-            "Handling API rate limits and providing a smooth user experience was challenging. I implemented intelligent caching with localStorage and service workers to minimize API calls while keeping data fresh.",
-        improvements:
-            "Future enhancements include adding weather alerts and notifications, implementing severe weather warnings, creating weather-based recommendations (e.g., activities, clothing), and adding air quality index data.",
-    },
-    {
-        id: 4,
-        slug: "blog-cms",
-        title: "Blog CMS Platform",
-        image: "/projects/blog-cms.jpg",
-        description:
-            "A headless CMS specifically designed for bloggers and content creators. Features include rich text editing, SEO optimization, image optimization, and analytics integration.",
-        techStack: [
-            "Next.js",
-            "TypeScript",
-            "PostgreSQL",
-            "Prisma",
-            "AWS S3",
-            "TipTap Editor",
-        ],
-        githubLink: "https://github.com/yourusername/blog-cms",
-        challenges:
-            "Building a performant rich text editor with collaboration features was complex. I integrated TipTap editor and implemented custom extensions for embedding media, code blocks, and custom components.",
-        improvements:
-            "Planning to add AI-powered content suggestions, scheduled publishing, multi-language support, advanced analytics dashboard, and integration with social media platforms for automatic cross-posting.",
-    },
+    // {
+    //     id: 3,
+    //     slug: "perfumania",
+    //     title: "Perfumania",
+    //     image: "/projects/perfumania.jpg",
+    //     description:
+    //         "An online perfume store with user authentication, product browsing, filtering, cart management, and a smooth e-commerce experience.",
+    //     techStack: ["MongoDB", "Express.js", "React", "Node.js"],
+    //     demoLink: "https://your-live-link.com/perfumania",
+    //     githubLink: "https://github.com/yourusername/perfumania-client",
+    //     challenges:
+    //         "Structuring product categories and filters for smooth browsing, managing cart state with proper UI-backend interactions, and maintaining consistent design across pages.",
+    //     improvements:
+    //         "Add AI-based product recommendations, implement loyalty and rewards system, enable multi-currency and multi-language support, integrate advanced search with fuzzy matching and voice search, and create a PWA version for offline access.",
+    // },
 ];
