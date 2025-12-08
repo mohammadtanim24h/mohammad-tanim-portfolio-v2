@@ -256,7 +256,10 @@ export default function BubbleMenu({
                     ].join(" ")}
                     aria-label="Logo"
                 >
-                    <h1 className="text-4xl font-bold tracking-wider">TAN!M</h1>
+                    <span className="text-4xl font-thin tracking-[0.15em] text-foreground group-hover:text-accent transition-colors duration-300">
+                        TANIM
+                    </span>
+                    <span className="block h-0.5 w-0 group-hover:w-full bg-linear-to-r from-accent to-accent-alt transition-all duration-500 mt-1"></span>
                 </div>
 
                 <button

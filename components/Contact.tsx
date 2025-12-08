@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerChildren } from "@/lib/motion";
 import { Mail, Phone } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import { SiLinkedin } from "react-icons/si";
+import { SiWhatsapp } from "react-icons/si";
 
 const contactMethods = [
     {
@@ -14,21 +14,18 @@ const contactMethods = [
         label: "Email",
         value: "mohammad.tanim24h@gmail.com",
         href: "mailto:mohammad.tanim24h@gmail.com",
-        description: "Send me a message anytime",
     },
     {
         icon: Phone,
         label: "Phone",
         value: "+880 1916602197",
         href: "tel:+8801916602197",
-        description: "Available for calls",
     },
     {
-        icon: SiLinkedin,
-        label: "LinkedIn",
-        value: "linkedin.com/in/mohammad-tanim",
-        href: "https://linkedin.com/in/mohammad-tanim",
-        description: "Connect professionally",
+        icon: SiWhatsapp,
+        label: "WhatsApp",
+        value: "+880 1916602197",
+        href: "https://wa.me/+8801916602197",
     },
 ];
 
@@ -61,15 +58,12 @@ export function Contact() {
                                         <h3 className="text-lg font-medium mb-1">
                                             {method.label}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground mb-3">
-                                            {method.description}
-                                        </p>
                                         <Button
                                             variant="link"
                                             asChild
                                             className="p-0 h-auto font-normal"
                                         >
-                                            {method.label === "LinkedIn" ? (
+                                            {method.label === "WhatsApp" ? (
                                                 <a
                                                     href={method.href}
                                                     target="_blank"
