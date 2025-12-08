@@ -94,15 +94,26 @@ export default function BubbleMenu({
         setIsMenuOpen(false);
         onMenuClick?.(false);
 
+        // Check if we're on the home page or a project detail page
+        const isHomePage = window.location.pathname === "/" || window.location.pathname === "";
+        const isProjectPage = window.location.pathname.startsWith("/projects/");
+
         // Handle navigation after a brief delay to allow menu to start closing
         setTimeout(() => {
             if (href === "#") {
-                // Scroll to top
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (isProjectPage) {
+                    // Navigate to home page
+                    window.location.href = "/";
+                } else {
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }
             } else {
-                // Scroll to section
+                // Check if section exists on current page
                 const element = document.querySelector(href);
+
                 if (element) {
+                    // Section exists, scroll to it
                     const offset = 60; // Account for fixed header height
                     const elementPosition =
                         element.getBoundingClientRect().top +
@@ -114,7 +125,8 @@ export default function BubbleMenu({
                         behavior: "smooth",
                     });
                 } else {
-                    console.error("Element not found for href:", href);
+                    // Section doesn't exist, navigate to home page with hash
+                    window.location.href = "/" + href;
                 }
             }
         }, 100);
