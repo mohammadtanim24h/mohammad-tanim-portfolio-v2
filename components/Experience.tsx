@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SectionHeader from "./SectionHeader";
 
 interface ExperienceItem {
     title: string;
@@ -45,18 +46,9 @@ const experiences: ExperienceItem[] = [
 
 export function Experience() {
     return (
-        <section
-            id="experience"
-            className="py-16 md:py-24 lg:py-32 bg-background"
-        >
+        <section id="experience" className="py-8 md:py-16 bg-background">
             <div className="container px-4 md:px-6">
-                {/* Section Header */}
-                <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                        Work Experience
-                    </h2>
-                    <div className="w-20 h-1 bg-primary mx-auto"></div>
-                </div>
+                <SectionHeader title="Work Experience" />
 
                 {/* Timeline Container */}
                 <div>

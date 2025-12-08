@@ -3,8 +3,9 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
-import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
+import { fadeInUp, staggerChildren } from "@/lib/motion";
+import { Mail, Phone, MessageCircle } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const contactMethods = [
     {
@@ -32,20 +33,9 @@ const contactMethods = [
 
 export function Contact() {
     return (
-        <section id="contact" className="py-24 md:py-16">
+        <section id="contact" className="py-8 md:py-16">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeIn}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
-                        Get In <span className="gradient-text">Touch</span>
-                    </h2>
-                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
-                </motion.div>
+                <SectionHeader title="Get In Touch" />
 
                 <div className="max-w-4xl mx-auto">
                     <motion.div

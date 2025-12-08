@@ -5,27 +5,17 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
+import { fadeInUp, staggerChildren } from "@/lib/motion";
 import { projectsData } from "@/lib/data";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import SectionHeader from "./SectionHeader";
 
 export function Projects() {
     return (
-        <section id="projects" className="py-24 md:py-16">
+        <section id="projects" className="py-8 md:py-16">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeIn}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
-                        Featured <span className="gradient-text">Projects</span>
-                    </h2>
-                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
-                </motion.div>
+                <SectionHeader title="Featured Projects" />
 
                 <motion.div
                     initial="hidden"
@@ -145,27 +135,6 @@ export function Projects() {
                             </Card>
                         </motion.div>
                     ))}
-                </motion.div>
-
-                {/* View All Projects CTA */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeInUp}
-                    className="text-center mt-16"
-                >
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="rounded-full group"
-                        asChild
-                    >
-                        <Link href="/projects">
-                            View All Projects
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                    </Button>
                 </motion.div>
             </div>
         </section>

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { fadeIn, fadeInUp, staggerChildren } from "@/lib/motion";
 import { Award, Trophy, Star } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 const awardsData = [
     {
@@ -41,21 +42,9 @@ const awardsData = [
 
 export function Awards() {
     return (
-        <section id="awards" className="py-24 md:py-16">
+        <section id="awards" className="py-8 md:py-16">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeIn}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-6">
-                        Awards and{" "}
-                        <span className="gradient-text">Certificates</span>
-                    </h2>
-                    <div className="w-24 h-1 bg-linear-to-r from-accent to-accent-alt mx-auto rounded-full" />
-                </motion.div>
+                <SectionHeader title="Awards & Certificates" />
 
                 <motion.div
                     initial="hidden"
