@@ -80,10 +80,10 @@ export function Awards() {
                                     {/* Description Section */}
                                     <div className="flex-1 flex flex-col justify-between space-y-4">
                                         <div className="space-y-3">
-                                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                            <p className="text-base text-muted-foreground leading-relaxed">
                                                 {award.description}
                                             </p>
-                                            <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                                            <p className="text-sm text-muted-foreground/80 leading-relaxed">
                                                 {award.details}
                                             </p>
                                         </div>

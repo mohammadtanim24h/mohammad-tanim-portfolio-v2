@@ -21,7 +21,7 @@ const contactMethods = [
     {
         icon: SiX,
         href: "https://x.com/MohammadTanim10",
-        label: "X (Twitter)",
+        label: "X",
     },
 ];
 

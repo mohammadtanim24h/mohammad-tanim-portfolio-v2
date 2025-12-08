@@ -154,7 +154,7 @@ export function Experience() {
                                                     <Badge
                                                         key={idx}
                                                         variant="secondary"
-                                                        className="text-xs font-normal px-3 py-1 bg-[#282828] hover:bg-[#404040]/80 transition-colors"
+                                                        className="text-xs font-normal px-3 py-1 bg-gray-200 hover:bg-gray-300 dark:bg-[#282828] dark:hover:bg-[#404040]/80 transition-colors"
                                                     >
                                                         {tech}
                                                     </Badge>
