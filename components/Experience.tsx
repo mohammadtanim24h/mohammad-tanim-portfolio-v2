@@ -49,36 +49,6 @@ const experiences: ExperienceItem[] = [
             "Ollama",
         ],
     },
-    {
-        title: "Full Stack Engineer",
-        company: "Next Leaders 23",
-        period: "July 2025 - Present",
-        location: "Remote",
-        employmentType: "Part-time",
-        description: [
-            "Engineered scalable web applications, improving performance, reliability, and overall user experience.",
-            "Designed, built and polished responsive interfaces with smooth interactions and modern UI/UX standards.",
-            "Developed commercial-quality digital products for marketplace distribution, focusing on clean structure and reusability.",
-            "Currently building a restaurant SaaS with features like menu management, ordering system, and admin dashboards.",
-            "Enhanced application efficiency through optimized data handling, routing, and state logic.",
-            "Contributed to architectural decisions and delivered end-to-end features within an agile workflow.",
-        ],
-        technologies: [
-            "React",
-            "TypeScript",
-            "Shadcn",
-            "Tailwind",
-            "Motion",
-            "React Router",
-            "TanStack Query",
-            "React Hook Form",
-            "Zod",
-            "Zustand",
-            "Axios",
-            "Express",
-            "MongoDB",
-        ],
-    },
 ];
 
 export function Experience() {
@@ -135,7 +105,7 @@ export function Experience() {
                                                 key={idx}
                                                 className="flex gap-3 leading-relaxed"
                                             >
-                                                <span className="text-accent mt-1.5 shrink-0 font-bold">
+                                                <span className="text-accent shrink-0 font-bold">
                                                     •
                                                 </span>
                                                 <span>{item}</span>

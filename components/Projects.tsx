@@ -2,14 +2,14 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerChildren } from "@/lib/motion";
 import { projectsData } from "@/lib/data";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
+import { SiGithub } from "react-icons/si";
 
 export function Projects() {
     return (
@@ -30,7 +30,7 @@ export function Projects() {
                             variants={fadeInUp}
                             className="group"
                         >
-                            <Card className="glass-surface overflow-hidden hover-lift h-full flex flex-col transform-gpu py-0">
+                            <Card className="glass-surface overflow-hidden h-full flex flex-col py-0">
                                 {/* Project Image */}
                                 <div className="relative overflow-hidden group/image">
                                     <div className="aspect-video relative bg-linear-to-br from-accent/5 to-accent-alt/5">
@@ -38,7 +38,7 @@ export function Projects() {
                                             src={project.image}
                                             alt={project.title}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
+                                            className="object-cover transition-transform duration-700"
                                             style={{
                                                 objectPosition: "top center",
                                             }}
@@ -49,15 +49,14 @@ export function Projects() {
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         whileHover={{ opacity: 1 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center gap-4"
+                                        className="absolute inset-0 backdrop-blur-md bg-accent flex items-center justify-center gap-4"
                                     >
                                         {project.demoLink && (
                                             <Button
                                                 size="sm"
                                                 variant="secondary"
                                                 asChild
-                                                className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-lg"
+                                                className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 shadow-lg bg-gray-50 dark:bg-gray-800 border border-gray-300"
                                             >
                                                 <Link
                                                     href={project.demoLink}
@@ -72,14 +71,14 @@ export function Projects() {
                                             size="sm"
                                             variant="secondary"
                                             asChild
-                                            className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 delay-75 shadow-lg"
+                                            className="rounded-full translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 delay-75 shadow-lg bg-gray-50 dark:bg-gray-800 border border-gray-300"
                                         >
                                             <Link
                                                 href={project.githubLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                <Github className="h-4 w-4" />
+                                                <SiGithub className="h-4 w-4" />
                                             </Link>
                                         </Button>
                                     </motion.div>
@@ -105,21 +104,17 @@ export function Projects() {
                                         {project.techStack
                                             .slice(0, 4)
                                             .map((tech) => (
-                                                <Badge
+                                                <div
                                                     key={tech}
-                                                    variant="secondary"
-                                                    className="text-xs font-medium px-2.5 py-1"
+                                                    className="text-xs font-medium px-2.5 py-1 border-2 border-gray-200 rounded-full"
                                                 >
                                                     {tech}
-                                                </Badge>
+                                                </div>
                                             ))}
                                         {project.techStack.length > 4 && (
-                                            <Badge
-                                                variant="outline"
-                                                className="text-xs font-medium px-2.5 py-1"
-                                            >
+                                            <div className="text-xs font-medium px-2.5 py-1 border-2 border-gray-200 rounded-full">
                                                 +{project.techStack.length - 4}
-                                            </Badge>
+                                            </div>
                                         )}
                                     </div>
 

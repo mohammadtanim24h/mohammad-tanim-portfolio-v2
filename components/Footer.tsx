@@ -33,7 +33,7 @@ export function Footer() {
     return (
         <footer className="border-t border-border/50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-8">
                     {/* Brand */}
                     <motion.div
                         initial="hidden"
@@ -56,7 +56,7 @@ export function Footer() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeInUp}
-                        className="flex-1 lg:flex-none lg:w-auto flex items-center justify-start lg:justify-end mt-0 lg:mt-0"
+                        className="flex-1 md:flex-none md:w-auto flex items-center justify-center md:justify-end mt-0 md:mt-0"
                     >
                         <div className="flex flex-wrap gap-4">
                             {contactMethods.map((method) => (
