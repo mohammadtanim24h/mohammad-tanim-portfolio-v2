@@ -18,9 +18,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
-    const project = projectsData.find((p) => p.slug === params.slug);
+    const { slug } = await params;
+    const project = projectsData.find((p) => p.slug === slug);
 
     if (!project) {
         return {
@@ -37,7 +38,7 @@ export async function generateMetadata({
 export default async function ProjectPage({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
     // Find the project by slug
     const { slug } = await params;
@@ -119,7 +120,7 @@ export default async function ProjectPage({
                                 >
                                     <Button
                                         variant="outline"
-                                        className="w-full group mb-2"
+                                        className="w-full group mb-2 cursor-pointer"
                                         size="lg"
                                     >
                                         <ExternalLink className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
@@ -134,7 +135,7 @@ export default async function ProjectPage({
                             >
                                 <Button
                                     variant="outline"
-                                    className="w-full group"
+                                    className="w-full group cursor-pointer"
                                     size="lg"
                                 >
                                     <Github className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
