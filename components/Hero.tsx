@@ -82,10 +82,13 @@ export function Hero() {
                                 size="lg"
                                 className="bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-800/30 text-blue-700 dark:text-blue-200 border-blue-200 dark:border-blue-700 cursor-pointer"
                                 onClick={() =>
-                                    window.open("/resume.pdf", "_blank")
+                                    window.open(
+                                        "https://drive.google.com/file/d/1UsJgBGMHzDvnjyvrJ-6LVJ7y0mTSkpek/view?usp=sharing",
+                                        "_blank",
+                                    )
                                 }
                             >
-                                Download CV
+                                My Resume
                                 <Download className="ml-2 h-4 w-4" />
                             </Button>
                         </motion.div>
