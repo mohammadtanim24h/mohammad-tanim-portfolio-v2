@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Download, ExternalLink, MapPin } from "lucide-react";
+import { ArrowDown, ExternalLink, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fadeIn, fadeInUp } from "@/lib/motion";
 import ProfileCard from "./ProfileCard";
@@ -89,7 +89,7 @@ export function Hero() {
                                 }
                             >
                                 My Resume
-                                <Download className="ml-2 h-4 w-4" />
+                                <ExternalLink className="ml-2 h-4 w-4" />
                             </Button>
                         </motion.div>
 
