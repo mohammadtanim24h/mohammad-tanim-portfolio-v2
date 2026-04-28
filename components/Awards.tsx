@@ -9,16 +9,6 @@ import SectionHeader from "./SectionHeader";
 
 const awardsData = [
     {
-        title: "Black Belt Award",
-        organization: "Programming Hero",
-        description: "Complete Web Development Course",
-        date: "2022",
-        details:
-            "Recognized for outstanding performance and project excellence in full-stack web development",
-        type: "award",
-        icon: Trophy,
-    },
-    {
         title: "Employee of the Month",
         organization: "ShujaBITS Infotech Solutions Private Limited",
         description: "Consistent performance and teamwork",
@@ -27,6 +17,16 @@ const awardsData = [
             "Awarded for consistent performance, teamwork, and contributions to client projects",
         type: "award",
         icon: Star,
+    },
+    {
+        title: "Black Belt Award",
+        organization: "Programming Hero",
+        description: "Complete Web Development Course",
+        date: "2022",
+        details:
+            "Recognized for outstanding performance and project excellence in full-stack web development",
+        type: "award",
+        icon: Trophy,
     },
     {
         title: "DevOps Workshop",
