@@ -56,7 +56,7 @@ export function Hero() {
                             variants={fadeInUp}
                             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 font-semibold"
                         >
-                            Full-Stack Developer | AI Integration | Tech
+                            Full Stack Engineer | AI Integration | Tech
                             Enthusiast
                         </motion.p>
 

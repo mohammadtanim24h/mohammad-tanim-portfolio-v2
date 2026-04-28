@@ -2,10 +2,20 @@
 
 import { motion } from "motion/react";
 import { fadeInUp, cardHover } from "@/lib/motion";
-import { Code, Award, Target, Book } from "lucide-react";
+import { Code, Target, Book } from "lucide-react";
 import SectionHeader from "./SectionHeader";
-import { Card, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
+
+// Calculate experience years dynamically from 2022
+const START_YEAR = 2022;
+const experienceYears = (() => {
+    const now = new Date();
+    const years = now.getFullYear() - START_YEAR;
+    const months = now.getMonth() + 1;
+    const totalYears = years + months / 12;
+    const wholeYears = Math.floor(totalYears);
+    const fraction = totalYears - wholeYears;
+    return fraction < 0.5 ? `${wholeYears}+ Years` : `${wholeYears}.5+ Years`;
+})();
 
 const highlights = [
     {
@@ -62,7 +72,7 @@ export function AboutMe() {
                         >
                             {[
                                 { label: "Location", value: "Bangladesh" },
-                                { label: "Experience", value: "3.5+ Years" },
+                                { label: "Experience", value: experienceYears },
                                 { label: "Status", value: "Available" },
                                 { label: "Remote", value: "Open" },
                             ].map((item) => (
