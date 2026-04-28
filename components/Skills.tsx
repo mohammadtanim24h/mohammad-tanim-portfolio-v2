@@ -76,6 +76,7 @@ export function Skills() {
                                                 duration: 0.4,
                                             },
                                         }}
+                                        viewport={{ once: true }}
                                         className="shrink-0"
                                     >
                                         <Card className="group relative overflow-hidden glass-surface cursor-default w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36">
