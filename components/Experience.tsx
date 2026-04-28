@@ -21,16 +21,16 @@ const experiences: ExperienceItem[] = [
     {
         title: "Software Developer",
         company: "ShujaBITS Infotech Solutions Private Limited",
-        period: "June 2022 - Present",
+        period: "June 2022 - Jan 2026",
         location: "Remote",
         employmentType: "Full-time",
         description: [
-            "Designed, developed, and deployed full-stack web applications using React, Angular, Node.js, Express, Django, and FastAPI, serving clients in logistics, AI, and enterprise sectors",
-            "Built an Inventory Management System for logistics companies to manage inventory, automate stock tracking, and streamline warehouse operations, reducing manual data entry by 60%",
-            "Developed an AI Interviewer Chatbot using React, LangChain, and Ollama, integrating LLMs to simulate real-time interview experiences",
-            "Engineered an Asset Management Application for managing organizational as well as personal assets with real-time tracking, data visualization, and efficient asset categorization",
+            "Led the development of a full-stack warehouse management system for logistics clients. This system automates inventory tracking, stock management, and warehouse operations. It reduced manual data entry by 60% and improved efficiency.",
+            "Created an AI Interviewer Chatbot utilizing React, LangChain, and Ollama, which uses LLMs to provide an interactive interviewing simulation that helps in recruiting processes.",
+            "Optimized API performance and database queries through strategic indexing, schema redesign, and query tuning, resulting in up to 80% faster response times and enhanced system scalability.",
+            "Designed and implemented CI/CD pipelines using Docker, improving build, test, and deployment processes; shortened deployment times and build errors by more than 40%.",
             "Enhanced API performance and database efficiency through indexing, schema optimization, and query tuning, leading to up to 80% faster response times",
-            "Implemented Docker-based CI/CD pipelines, reducing deployment time and build errors by over 40%",
+            "Participated in Agile development, actively participating in activities such as sprint planning, code review, and continuous delivery.",
         ],
         technologies: [
             "React",
@@ -128,7 +128,7 @@ export function Experience() {
                                                     >
                                                         {tech}
                                                     </Badge>
-                                                )
+                                                ),
                                             )}
                                         </div>
                                     </div>
