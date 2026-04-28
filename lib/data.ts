@@ -104,6 +104,29 @@ export interface Project {
 export const projectsData: Project[] = [
     {
         id: 1,
+        slug: "echo-learn",
+        title: "Echo Learn (AI Learning Platform)",
+        image: "/projects/echo-learn.png",
+        description:
+            "An AI-driven learning platform delivering personalized education via interactive AI companions with real-time voice AI capabilities and customizable teaching experiences.",
+        techStack: [
+            "Next.js",
+            "Vapi AI",
+            "Supabase",
+            "Clerk",
+            "TypeScript",
+            "Tailwind CSS",
+            "Sentry",
+        ],
+        demoLink: "https://echo-learn-ai.vercel.app/",
+        githubLink: "https://github.com/mohammadtanim24h/echo-learn",
+        challenges:
+            "Integrating real-time voice AI (Vapi) with live transcription for natural, conversational learning experiences while ensuring low latency and high accessibility. Implementing secure authentication with subscription-based tier access control.",
+        improvements:
+            "Add multi-language support for global accessibility, implement advanced analytics to track learning progress, integrate more AI voice options, add collaborative study rooms, and enable custom curriculum creation with AI-generated content.",
+    },
+    {
+        id: 2,
         slug: "smart-task-manager",
         title: "Smart Task Manager",
         image: "/projects/smart-task-manager.png",
@@ -126,7 +149,7 @@ export const projectsData: Project[] = [
             "Add role-based access control, integrate AI-based task prioritization, implement calendar sync with Google Calendar, add push notifications, and enable collaborative team boards with real-time updates.",
     },
     {
-        id: 2,
+        id: 3,
         slug: "active-wheels",
         title: "Active Wheels",
         image: "/projects/active-wheels.jpg",
@@ -141,19 +164,4 @@ export const projectsData: Project[] = [
         improvements:
             "Add predictive inventory management using AI, implement advanced reporting and analytics dashboards, enable multi-warehouse support, introduce automated stock alerts and reorder system, and integrate advanced payment features like subscriptions and invoicing via Stripe.",
     },
-    // {
-    //     id: 3,
-    //     slug: "perfumania",
-    //     title: "Perfumania",
-    //     image: "/projects/perfumania.jpg",
-    //     description:
-    //         "An online perfume store with user authentication, product browsing, filtering, cart management, and a smooth e-commerce experience.",
-    //     techStack: ["MongoDB", "Express.js", "React", "Node.js"],
-    //     demoLink: "https://your-live-link.com/perfumania",
-    //     githubLink: "https://github.com/yourusername/perfumania-client",
-    //     challenges:
-    //         "Structuring product categories and filters for smooth browsing, managing cart state with proper UI-backend interactions, and maintaining consistent design across pages.",
-    //     improvements:
-    //         "Add AI-based product recommendations, implement loyalty and rewards system, enable multi-currency and multi-language support, integrate advanced search with fuzzy matching and voice search, and create a PWA version for offline access.",
-    // },
 ];

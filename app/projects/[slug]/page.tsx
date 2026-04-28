@@ -152,7 +152,6 @@ export default async function ProjectPage({
                     <Card className="hover:shadow-lg transition-shadow">
                         <CardHeader>
                             <CardTitle className="text-2xl md:text-3xl flex items-center gap-2">
-                                <span className="text-3xl">🚀</span>
                                 Challenges Faced
                             </CardTitle>
                         </CardHeader>
@@ -167,7 +166,6 @@ export default async function ProjectPage({
                     <Card className="hover:shadow-lg transition-shadow">
                         <CardHeader>
                             <CardTitle className="text-2xl md:text-3xl flex items-center gap-2">
-                                <span className="text-3xl">💡</span>
                                 Future Improvements
                             </CardTitle>
                         </CardHeader>
